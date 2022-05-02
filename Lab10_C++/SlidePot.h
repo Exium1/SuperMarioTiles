@@ -25,6 +25,7 @@ public:
   uint32_t Convert(uint32_t n); // convert ADC to raw sample
   uint32_t ADCsample(void);     // return ADC sample value (0 to 4095)
   uint32_t Distance(void);      // return distance value (0 to 2000), 0.001cm
+	uint32_t PosSect(uint8_t n);
 };
 
 // ADC initialization function, channel 5, PD2

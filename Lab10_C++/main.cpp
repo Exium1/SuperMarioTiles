@@ -205,7 +205,7 @@ void languageSelectScreen() {
 		if ((GPIO_PORTE_DATA_R & 0x1) == 1) {
 			language = ENGLISH;
 			break;
-		} else if ((GPIO_PORTE_DATA_R & 0x2) == 1) {
+		} else if ((GPIO_PORTE_DATA_R & 0x2) == 0x2) {
 			language = ITALIANO;
 			break;
 		}

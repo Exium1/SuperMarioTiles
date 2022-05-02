@@ -111,4 +111,9 @@ uint32_t SlidePot::Distance(void){  // return distance value (0 to 2000), 0.001c
   return this->distance; // replace this with solution
 }
 
-
+uint32_t SlidePot::PosSect(uint8_t n){
+	int calc = 4096/n;
+	for (int i = 1; i<n; i++){
+		if (this->data < i*calc) return i-1;
+	}
+}

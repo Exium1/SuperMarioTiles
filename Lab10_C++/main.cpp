@@ -82,7 +82,9 @@ class Image;
 void menuScreen();
 void languageSelectScreen();
 void difficultySelectScreen();
+void gameScreen();
 void Sound_Init();
+void Output_Init();
 void Sound_Play(int index);
 void Timer1_Init(void(*task)(void), uint32_t period);
 void Delay1ms(uint32_t);
@@ -108,10 +110,8 @@ int main(void){
   PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
   TExaS_Init();
   Random_Init(1);
-  //Output_Init();
+  Output_Init();
 	Sound_Init();
-	ST7735_InitR(INITR_REDTAB);
-	ST7735_InvertDisplay(1);
 	Buttons_Init();
   EnableInterrupts();
 	
@@ -137,7 +137,7 @@ int main(void){
 		
 		if (currentScreen == GAME) {
 		
-			
+			gameScreen();
 			
 		}
 		
@@ -182,7 +182,7 @@ void menuScreen() {
 	while (false && (GPIO_PORTE_DATA_R & 0xF) == 0) {};
 	while ((GPIO_PORTE_DATA_R & 0xF) != 0) {};
 		
-	Delay1ms(3000);
+	Delay1ms(5000);
 		
 	Timer0_Stop();
 	currentScreen = LANG_SELECT;
@@ -247,6 +247,41 @@ void difficultySelectScreen() {
 	currentScreen = GAME;
 		
 	transitionCollapse();
+
+}
+
+void gameScreen() {
+	
+	Image EasyLevelBackground(128, 160, EasyLevelBackgroundSrc);
+	Image BrickBlockMedium(32, 32, BrickBlockMediumSrc);
+	
+	Sprite Block1(0, 160, &BrickBlockMedium);
+	Sprite Block2(32, 128, &BrickBlockMedium);
+	Sprite Block3(32, 96, &BrickBlockMedium);
+	Sprite Block4(64, 64, &BrickBlockMedium);
+	Sprite Block5(0, 32, &BrickBlockMedium);
+	
+	EasyLevelBackground.draw(0, 160);
+	
+	Block1.draw();
+	Block2.draw();
+	Block3.draw();
+	Block4.draw();
+	Block5.draw();
+	
+	ST7735_FillRect(0, 0, 128, 12, 0x0000);
+
+	// Countdown
+	ST7735_DrawChar(61, 2, '3', 0xFFFF, 0x0000, 1);
+	Delay1ms(1000);
+	ST7735_DrawChar(61, 2, '2', 0xFFFF, 0x0000, 1);
+	Delay1ms(1000);
+	ST7735_DrawChar(61, 2, '1', 0xFFFF, 0x0000, 1);
+	Delay1ms(1000);
+	char* goString = "Go!";
+	ST7735_DrawString(61, 8, goString, 0xFFFF);
+	
+	Delay1ms(3000);
 
 }
 

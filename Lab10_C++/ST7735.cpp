@@ -1121,7 +1121,7 @@ void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, i
   setAddrWindow(x, y-h+1, x+w-1, y);
 
   for(y=0; y<h; y=y+1){
-    for(x=0; x<w; x=x+1){
+    for(x=0; x<w; x=x+1){			
                                         // send the top 8 bits
       writedata((uint8_t)(image[i] >> 8));
                                         // send the bottom 8 bits
@@ -1704,7 +1704,8 @@ void ST7735_SetTextColor(uint16_t color){
 // Inputs: none
 // Outputs: none
 void Output_Init(void){
-  ST7735_InitR(INITR_REDTAB);
+	ST7735_InitR(INITR_REDTAB);
+	ST7735_InvertDisplay(1);
   ST7735_FillScreen(0);                 // set screen to black
 }
 

@@ -102,8 +102,15 @@ enum Language {
 	ITALIANO
 };
 
+enum Difficulty {
+	EASY,
+	NORMAL,
+	HARD
+};
+
 ScreenMode currentScreen = MENU;
 Language language = ENGLISH;
+Difficulty difficulty = EASY;
 Sprite* spriteToAnimate;
 
 int main(void){
@@ -195,24 +202,31 @@ void languageSelectScreen() {
 	Image MarioWorldBackground(128, 160, MarioWorldBackgroundSrc);
 	Image LanguageEnglish(92, 44, LanguageEnglishSrc);
 	Image LanguageItaliano(92, 44, LanguageItalianoSrc);
+	Image ButtonHighlighted(98, 50, ButtonHighlightedSrc);
 	
 	MarioWorldBackground.draw(0, 160);
 	LanguageEnglish.draw(18, 68);
 	LanguageItaliano.draw(18, 136);
 	
-	while (false && 1) {
-	
-		if ((GPIO_PORTE_DATA_R & 0x1) == 1) {
-			language = ENGLISH;
-			break;
-		} else if ((GPIO_PORTE_DATA_R & 0x2) == 0x2) {
-			language = ITALIANO;
-			break;
+	while (1) {
+		if (my.PosSect(2) == 0){
+			ButtonHighlighted.draw(15, 71);
+			LanguageEnglish.draw(18, 68);
+			if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+				language = ENGLISH;
+				break;
+			} 
 		}
+		if (my.PosSect(2) == 1){
+			ButtonHighlighted.draw(15, 139);
+			LanguageItaliano.draw(18, 136);
+			if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+				language = ITALIANO;
+				break;
+			} 
+		}		
 	}
 		
-	Delay1ms(3000);
-	
 	currentScreen = DIFF_SELECT;
 		
 	transitionCollapse();
@@ -225,25 +239,43 @@ void difficultySelectScreen() {
 	Image DifficultyEasy(92, 44, DifficultyEasySrc);
 	Image DifficultyNormal(92, 44, DifficultyNormalSrc);
 	Image DifficultyHard(92, 44, DifficultyHardSrc);
+	Image ButtonHighlighted(98, 50, ButtonHighlightedSrc);
 	
 	MarioWorldBackground.draw(0, 160);
 	DifficultyEasy.draw(18, 51);
 	DifficultyNormal.draw(18, 102);
 	DifficultyHard.draw(18, 153);
 	
-	while (false && 1) {
-	
-		if ((GPIO_PORTE_DATA_R & 0x1) == 1) {
-			break;
-		} else if ((GPIO_PORTE_DATA_R & 0x2) == 1) {
-			break;
-		} else if ((GPIO_PORTE_DATA_R & 0x4) == 1) {
-			break;
-		}
+	if (language == ENGLISH){
+		while (1) {
+			if (my.PosSect(3) == 0){
+				ButtonHighlighted.draw(15, 54);
+				DifficultyEasy.draw(18, 51);
+				if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+					difficulty = EASY;
+					break;
+				}
+			}
+			if (my.PosSect(3) == 1){
+				ButtonHighlighted.draw(15, 105);
+				DifficultyNormal.draw(18, 102);
+				if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+					difficulty = NORMAL;
+					break;
+				}
+			}
+			if (my.PosSect(3) == 2){
+				ButtonHighlighted.draw(15, 156);
+				DifficultyHard.draw(18, 153);.
+				if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+					difficulty = HARD;
+					break;
+				}
+			}
 	}
 	
-	Delay1ms(3000);
-	
+	if (language == ITALIANO){}//todo 
+		
 	currentScreen = GAME;
 		
 	transitionCollapse();

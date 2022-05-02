@@ -37,10 +37,10 @@
 .\main.o: PLL.h
 .\main.o: ST7735.h
 .\main.o: Random.h
-.\main.o: PLL.h
 .\main.o: SlidePot.h
 .\main.o: Images.h
 .\main.o: UART.h
 .\main.o: Timer0.h
 .\main.o: Sprite.h
 .\main.o: Images.h
+.\main.o: TexaS.h

@@ -1,7 +1,7 @@
 Dependencies for Project 'Lab10_C++', Target 'Lab 10': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (.\startup_TM4C123.s)(0x5AD88E90)(--cpu Cortex-M4 -g --apcs=interwork -I.\RTE\_Lab_10-IC:\Users\Joaquin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Joaquin\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1" --pd "_RTE_ SETA 1"--list .\startup_tm4c123.lst --xref -o .\startup_tm4c123.o --depend .\startup_tm4c123.d)
-F (.\main.cpp)(0x626F27CB)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork -I.\RTE\_Lab_10-IC:\Users\Joaquin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Joaquin\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="536" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (.\main.cpp)(0x626F3931)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork -I.\RTE\_Lab_10-IC:\Users\Joaquin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Joaquin\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="536" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025DA4E)
 I (C:\Keil_v5\ARM\ARMCC\include\string)(0x6025DA4E)
 I (C:\Keil_v5\ARM\ARMCC\include\iosfwd)(0x6025DA4C)
@@ -40,10 +40,11 @@ I (PLL.h)(0x5E21EBF2)
 I (ST7735.h)(0x626D8312)
 I (Random.h)(0x5E21EBF2)
 I (SlidePot.h)(0x5ABC3388)
-I (Images.h)(0x626F2279)
+I (Images.h)(0x626F36F8)
 I (UART.h)(0x5E21EBF2)
 I (Timer0.h)(0x626F1838)
 I (Sprite.h)(0x626F27AD)
+I (TexaS.h)(0x5ABBF2D4)
 F (.\DAC.cpp)(0x626D70DD)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork -I.\RTE\_Lab_10-IC:\Users\Joaquin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Joaquin\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="536" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\dac.o --omf_browse .\dac.crf --depend .\dac.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025DA4E)
 I (../inc/tm4c123gh6pm.h)(0x5388D0EA)
@@ -62,7 +63,7 @@ F (.\SlidePot.cpp)(0x626D81D2)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork 
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025DA4E)
 I (SlidePot.h)(0x5ABC3388)
 I (../inc/tm4c123gh6pm.h)(0x5388D0EA)
-F (.\Sound.cpp)(0x626D8AF4)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork -I.\RTE\_Lab_10-IC:\Users\Joaquin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Joaquin\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="536" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\sound.o --omf_browse .\sound.crf --depend .\sound.d)
+F (.\Sound.cpp)(0x626F3104)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork -I.\RTE\_Lab_10-IC:\Users\Joaquin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Joaquin\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="536" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\sound.o --omf_browse .\sound.crf --depend .\sound.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025DA4E)
 I (Sound.h)(0x626D8ADF)
 I (Timer1.h)(0x626D79FB)

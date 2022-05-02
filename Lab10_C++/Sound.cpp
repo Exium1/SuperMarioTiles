@@ -80,8 +80,3 @@ void Sound_Play(int index){
 	soundList[index].play();
 	
 };
-
-void Sound_Shoot(void){
-// write this
-};
-

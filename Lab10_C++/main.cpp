@@ -55,12 +55,12 @@
 #include "PLL.h"
 #include "ST7735.h"
 #include "Random.h"
-#include "PLL.h"
 #include "SlidePot.h"
 #include "Images.h"
 #include "UART.h"
 #include "Timer0.h"
 #include "Sprite.h"
+#include "TexaS.h"
 
 SlidePot my(1500,0);
 
@@ -73,17 +73,19 @@ void Buttons_Init() {
 	SYSCTL_RCGCGPIO_R |= 0x10;
 	while((SYSCTL_RCGCGPIO_R & 0x10) == 0) {};
 		
-	GPIO_PORTE_DEN_R |= 0x0F;
-	GPIO_PORTE_DIR_R &= ~0x0F;
+	GPIO_PORTE_DEN_R |= 0xF;
+	GPIO_PORTE_DIR_R &= ~0xF;
 
 }
 
 class Image;
 void menuScreen();
 void languageSelectScreen();
+void difficultySelectScreen();
 void Sound_Init();
 void Sound_Play(int index);
 void Timer1_Init(void(*task)(void), uint32_t period);
+void Delay1ms(uint32_t);
 
 enum ScreenMode {
 	MENU,
@@ -93,12 +95,18 @@ enum ScreenMode {
 	PAUSE
 };
 
+enum Language {
+	ENGLISH,
+	ITALIANO
+};
+
 ScreenMode currentScreen = MENU;
+Language language = ENGLISH;
 Sprite* spriteToAnimate;
 
 int main(void){
   PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
-  // TExaS_Init();
+  TExaS_Init();
   Random_Init(1);
   //Output_Init();
 	Sound_Init();
@@ -113,7 +121,6 @@ int main(void){
 		if (currentScreen == MENU) {
 		
 			menuScreen();
-			
 		}
 		
 		if (currentScreen == LANG_SELECT) {
@@ -124,13 +131,14 @@ int main(void){
 		
 		if (currentScreen == DIFF_SELECT) {
 		
-				
-		
+			difficultySelectScreen();
+			
 		}
 		
 		if (currentScreen == GAME) {
 		
-		
+			
+			
 		}
 		
 		if (currentScreen == PAUSE) {
@@ -156,6 +164,8 @@ void transitionCollapse() {
 			}
 		}
 	}
+	
+	Delay1ms(300);
 }
 
 void menuScreen() {
@@ -168,7 +178,11 @@ void menuScreen() {
 	MainMenuBackground.draw(0, 160);	
 	GoldCoinSprite.animate(FLOATING);
 	
-	while ((GPIO_PORTE_DATA_R & 0x1) == 0) {};
+	// Continues only when any button is pressed, then released
+	while (false && (GPIO_PORTE_DATA_R & 0xF) == 0) {};
+	while ((GPIO_PORTE_DATA_R & 0xF) != 0) {};
+		
+	Delay1ms(3000);
 		
 	Timer0_Stop();
 	currentScreen = LANG_SELECT;
@@ -179,9 +193,60 @@ void menuScreen() {
 void languageSelectScreen() {
 
 	Image MarioWorldBackground(128, 160, MarioWorldBackgroundSrc);
+	Image LanguageEnglish(92, 44, LanguageEnglishSrc);
+	Image LanguageItaliano(92, 44, LanguageItalianoSrc);
 	
 	MarioWorldBackground.draw(0, 160);
+	LanguageEnglish.draw(18, 68);
+	LanguageItaliano.draw(18, 136);
 	
-	while (1) {}
+	while (false && 1) {
+	
+		if ((GPIO_PORTE_DATA_R & 0x1) == 1) {
+			language = ENGLISH;
+			break;
+		} else if ((GPIO_PORTE_DATA_R & 0x2) == 1) {
+			language = ITALIANO;
+			break;
+		}
+	}
+		
+	Delay1ms(3000);
+	
+	currentScreen = DIFF_SELECT;
+		
+	transitionCollapse();
 
 }
+
+void difficultySelectScreen() {
+
+	Image MarioWorldBackground(128, 160, MarioWorldBackgroundSrc);
+	Image DifficultyEasy(92, 44, DifficultyEasySrc);
+	Image DifficultyNormal(92, 44, DifficultyNormalSrc);
+	Image DifficultyHard(92, 44, DifficultyHardSrc);
+	
+	MarioWorldBackground.draw(0, 160);
+	DifficultyEasy.draw(18, 51);
+	DifficultyNormal.draw(18, 102);
+	DifficultyHard.draw(18, 153);
+	
+	while (false && 1) {
+	
+		if ((GPIO_PORTE_DATA_R & 0x1) == 1) {
+			break;
+		} else if ((GPIO_PORTE_DATA_R & 0x2) == 1) {
+			break;
+		} else if ((GPIO_PORTE_DATA_R & 0x4) == 1) {
+			break;
+		}
+	}
+	
+	Delay1ms(3000);
+	
+	currentScreen = GAME;
+		
+	transitionCollapse();
+
+}
+

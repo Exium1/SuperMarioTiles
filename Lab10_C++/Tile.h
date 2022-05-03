@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "ST7735.h"
 
 class Tile {
 
@@ -8,24 +9,31 @@ class Tile {
 		bool clicked;
 		bool onScreen;
 		bool falling;
-		int scrollSpeed;
-		int row;
+		int fallSpeed;
+		int col;
 	
-		Tile(Sprite* sprite, bool falling, int scrollSpeed, int row) {
+		Tile(Sprite* sprite, bool falling, int fallSpeed, int col) {
 		
 			this->sprite = sprite;
 			this->clicked = false;
 			this->onScreen = false;
 			this->falling = falling;
-			this->scrollSpeed = scrollSpeed;
-			this->row = row;
+			this->fallSpeed = fallSpeed;
+			this->col = col;
 		
 		}
 		
 		void fall() {
 		
-			this->sprite->erase();
-			this->sprite->y += this->scrollSpeed;
+			ST7735_FillRect(this->sprite->x, this->sprite->y - this->sprite->image->height + 1, this->sprite->image->width, 1, 0x07E0);
+			
+			this->sprite->y += 50;
+			this->draw();
+		
+		}
+		
+		void draw() {
+		
 			this->sprite->draw();
 		
 		}

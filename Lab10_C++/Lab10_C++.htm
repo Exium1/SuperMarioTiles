@@ -3,16 +3,16 @@
 <title>Static Call Graph - [.\Lab10_C++.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Lab10_C++.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue May 03 16:26:15 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue May 03 17:17:45 2022
 <BR><P>
-<H3>Maximum Stack Usage =        256 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        224 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; gameScreen() &rArr; ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 <P>
 <H3>
 Functions with no stack information
 </H3><UL>
- <LI><a href="#[e3]">__user_initial_stackheap</a>
+ <LI><a href="#[e4]">__user_initial_stackheap</a>
 </UL>
 </UL>
 <P>
@@ -254,8 +254,7 @@ Function Pointers
  <LI><a href="#[59]">WTIMER4B_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[5a]">WTIMER5A_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[5b]">WTIMER5B_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
- <LI><a href="#[92]">gameUpdate()</a> from main.o(.text) referenced from main.o(.text)
- <LI><a href="#[d6]">playSample()</a> from sound.o(.text) referenced from sound.o(.text)
+ <LI><a href="#[d7]">playSample()</a> from sound.o(.text) referenced from sound.o(.text)
  <LI><a href="#[7a]">floatAnimation()</a> from sprite.o(.text) referenced from main.o(.text)
  <LI><a href="#[7e]">__main</a> from __main.o(!!!main) referenced from startup_tm4c123.o(.text)
  <LI><a href="#[7d]">__sti___8_UART_cpp_RxFifo</a> from uart.o(.text) referenced from uart.o(.init_array)
@@ -279,9 +278,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[e5]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[e6]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[e6]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[e7]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[83]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
@@ -289,19 +288,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[e7]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+<P><STRONG><a name="[e8]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
 <P><STRONG><a name="[88]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
 </UL>
 
-<P><STRONG><a name="[e8]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[e9]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[e9]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[ea]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[ea]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[eb]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[eb]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[ec]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
 <P><STRONG><a name="[84]"></a>__rt_lib_init_cpp_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
@@ -310,66 +309,66 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cpp_initialize__aeabi_
 </UL>
 
-<P><STRONG><a name="[ec]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[ed]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[ed]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
+<P><STRONG><a name="[ee]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
 
-<P><STRONG><a name="[ee]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[ef]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[ef]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[f0]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[f0]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[f1]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
 
-<P><STRONG><a name="[f1]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[f2]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
 
-<P><STRONG><a name="[f2]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[f3]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[f3]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[f4]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
-<P><STRONG><a name="[f4]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[f5]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[f5]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[f6]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[f6]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[f7]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[f7]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[f8]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
-<P><STRONG><a name="[f8]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[f9]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[f9]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[fa]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
-<P><STRONG><a name="[fa]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[fb]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
-<P><STRONG><a name="[fb]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[fc]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[fc]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[fd]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
 
 <P><STRONG><a name="[8d]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[fd]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[fe]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[fe]"></a>__rt_lib_shutdown_fini_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[ff]"></a>__rt_lib_shutdown_fini_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[ff]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))
+<P><STRONG><a name="[100]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))
 
-<P><STRONG><a name="[100]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000011))
+<P><STRONG><a name="[101]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000011))
 
-<P><STRONG><a name="[101]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000012))
+<P><STRONG><a name="[102]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000012))
 
-<P><STRONG><a name="[102]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[103]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
-<P><STRONG><a name="[103]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))
+<P><STRONG><a name="[104]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))
 
-<P><STRONG><a name="[104]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
+<P><STRONG><a name="[105]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
 
 <P><STRONG><a name="[81]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
-<P><STRONG><a name="[105]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[106]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[85]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -382,19 +381,19 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[106]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[107]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[89]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; gameScreen() &rArr; ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[107]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[108]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
-<P><STRONG><a name="[e4]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<P><STRONG><a name="[e5]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
@@ -402,7 +401,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[108]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[109]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[8e]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -411,17 +410,17 @@ Global Symbols
 <P><STRONG><a name="[3]"></a>Reset_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_tm4c123.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[109]"></a>DisableInterrupts</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
+<P><STRONG><a name="[10a]"></a>DisableInterrupts</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
 
-<P><STRONG><a name="[ab]"></a>EnableInterrupts</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_tm4c123.o(.text))
+<P><STRONG><a name="[ac]"></a>EnableInterrupts</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_tm4c123.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10a]"></a>StartCritical</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
+<P><STRONG><a name="[10b]"></a>StartCritical</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
 
-<P><STRONG><a name="[10b]"></a>EndCritical</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
+<P><STRONG><a name="[10c]"></a>EndCritical</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
 
-<P><STRONG><a name="[10c]"></a>WaitForInterrupt</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
+<P><STRONG><a name="[10d]"></a>WaitForInterrupt</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup_tm4c123.o(.text), UNUSED)
 
 <P><STRONG><a name="[4]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_tm4c123.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
@@ -1214,7 +1213,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[e3]"></a>__user_initial_stackheap</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup_tm4c123.o(.text))
+<P><STRONG><a name="[e4]"></a>__user_initial_stackheap</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup_tm4c123.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
@@ -1226,69 +1225,71 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[92]"></a>gameUpdate()</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = gameUpdate() &rArr; Sprite::draw() &rArr; Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<P><STRONG><a name="[92]"></a>gameUpdate()</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = gameUpdate() &rArr; Tile::draw() &rArr; Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sprite::draw()
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::erase(int, int)
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tile::draw()
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 </UL>
-<P><STRONG><a name="[95]"></a>gameScreen()</STRONG> (Thumb, 264 bytes, Stack size 104 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = gameScreen() &rArr; ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+
+<P><STRONG><a name="[95]"></a>gameScreen()</STRONG> (Thumb, 302 bytes, Stack size 72 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = gameScreen() &rArr; ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms(unsigned)
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Random()
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawString(unsigned short, unsigned short, char*, short)
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawChar(short, short, char, short, short, unsigned char)
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0_Init(void(*)(), unsigned)
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sprite::Sprite(int, int, Image*)
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sprite::draw()
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sprite::Sprite(int, int, Image*)
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::Image(int, int, const unsigned short*)
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tile::draw()
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameUpdate()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9e]"></a>transitionCollapse()</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, main.o(.text))
+<P><STRONG><a name="[9d]"></a>transitionCollapse()</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = transitionCollapse() &rArr; ST7735_DrawPixel(short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms(unsigned)
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
 </UL>
 
-<P><STRONG><a name="[a2]"></a>IO_Touch(int, bool)</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[a1]"></a>IO_Touch(int, bool)</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
 </UL>
 
-<P><STRONG><a name="[a0]"></a>difficultySelectScreen()</STRONG> (Thumb, 410 bytes, Stack size 72 bytes, main.o(.text))
+<P><STRONG><a name="[9f]"></a>difficultySelectScreen()</STRONG> (Thumb, 480 bytes, Stack size 72 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = difficultySelectScreen() &rArr; Image::erase(int, int) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::PosSect(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::PosSect(unsigned char)
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::Image(int, int, const unsigned short*)
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::erase(int, int)
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Touch(int, bool)
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::erase(int, int)
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Touch(int, bool)
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a3]"></a>languageSelectScreen()</STRONG> (Thumb, 370 bytes, Stack size 56 bytes, main.o(.text))
+<P><STRONG><a name="[a3]"></a>languageSelectScreen()</STRONG> (Thumb, 292 bytes, Stack size 56 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = languageSelectScreen() &rArr; Image::erase(int, int) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::PosSect(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::PosSect(unsigned char)
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::Image(int, int, const unsigned short*)
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::erase(int, int)
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Touch(int, bool)
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::erase(int, int)
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Touch(int, bool)
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1296,194 +1297,197 @@ Global Symbols
 <P><STRONG><a name="[a4]"></a>menuScreen()</STRONG> (Thumb, 100 bytes, Stack size 48 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = menuScreen() &rArr; Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0_Stop()
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0_Init(void(*)(), unsigned)
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sprite::Sprite(int, int, Image*)
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0_Stop()
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0_Init(void(*)(), unsigned)
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sprite::Sprite(int, int, Image*)
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::Image(int, int, const unsigned short*)
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Touch(int, bool)
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Touch(int, bool)
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[8a]"></a>main</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = main &rArr; gameScreen() &rArr; ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = main &rArr; gameScreen() &rArr; ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init(unsigned)
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Random_Init(unsigned)
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Play(int)
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Init()
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init(unsigned)
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Random_Init(unsigned)
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Play(int)
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Init()
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_Init()
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[d9]"></a>DAC_Init()</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, dac.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Init()
+<P><STRONG><a name="[da]"></a>DAC_Init()</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, dac.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Init()
 </UL>
 
-<P><STRONG><a name="[d7]"></a>DAC_Out(unsigned char)</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dac.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;playSample()
+<P><STRONG><a name="[d8]"></a>DAC_Out(unsigned char)</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dac.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;playSample()
 </UL>
 
-<P><STRONG><a name="[a6]"></a>PLL_Init(unsigned)</STRONG> (Thumb, 120 bytes, Stack size 0 bytes, pll.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
+<P><STRONG><a name="[a7]"></a>PLL_Init(unsigned)</STRONG> (Thumb, 120 bytes, Stack size 0 bytes, pll.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a8]"></a>Random_Init(unsigned)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, random.o(.text))
+<P><STRONG><a name="[a9]"></a>Random_Init(unsigned)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, random.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10d]"></a>Random32()</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, random.o(.text), UNUSED)
+<P><STRONG><a name="[10e]"></a>Random32()</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, random.o(.text), UNUSED)
 
-<P><STRONG><a name="[10e]"></a>Random()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, random.o(.text), UNUSED)
+<P><STRONG><a name="[98]"></a>Random()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, random.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
+</UL>
 
 <P><STRONG><a name="[9b]"></a>Delay1ms(unsigned)</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Delay1ms(unsigned)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
+<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 </UL>
 
-<P><STRONG><a name="[99]"></a>ST7735_FillRect(short, short, short, short, unsigned short)</STRONG> (Thumb, 220 bytes, Stack size 48 bytes, st7735.o(.text))
+<P><STRONG><a name="[93]"></a>ST7735_FillRect(short, short, short, short, unsigned short)</STRONG> (Thumb, 220 bytes, Stack size 48 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;backgroundPixel(int, int)
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;backgroundPixel(int, int)
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotClear(int, int)
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::erase(int, int)
+<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotClear(int, int)
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::erase(int, int)
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameUpdate()
 </UL>
 
-<P><STRONG><a name="[b5]"></a>ST7735_FillScreen(unsigned short)</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(.text))
+<P><STRONG><a name="[b6]"></a>ST7735_FillScreen(unsigned short)</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ST7735_FillScreen(unsigned short) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Clear()
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitB()
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
-</UL>
-
-<P><STRONG><a name="[b7]"></a>ST7735_SetCursor(unsigned, unsigned)</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitB()
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Clear()
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitB()
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
 </UL>
 
-<P><STRONG><a name="[b6]"></a>ST7735_InitB()</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor(unsigned, unsigned)
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
+<P><STRONG><a name="[b8]"></a>ST7735_SetCursor(unsigned, unsigned)</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitB()
 </UL>
 
-<P><STRONG><a name="[b8]"></a>ST7735_InitR(initRFlags)</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, st7735.o(.text))
+<P><STRONG><a name="[b7]"></a>ST7735_InitB()</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor(unsigned, unsigned)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
+</UL>
+
+<P><STRONG><a name="[b9]"></a>ST7735_InitR(initRFlags)</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = ST7735_InitR(initRFlags) &rArr; ST7735_FillScreen(unsigned short) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor(unsigned, unsigned)
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor(unsigned, unsigned)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
+<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
 </UL>
 
-<P><STRONG><a name="[9f]"></a>ST7735_DrawPixel(short, short, unsigned short)</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, st7735.o(.text))
+<P><STRONG><a name="[9e]"></a>ST7735_DrawPixel(short, short, unsigned short)</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ST7735_DrawPixel(short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor(unsigned short)
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor(unsigned short)
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotPoints(int, int)
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotLine(int)
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotPoint(int)
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
-</UL>
-
-<P><STRONG><a name="[ba]"></a>ST7735_DrawFastVLine(short, short, short, unsigned short)</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotNextErase()
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotdBfs(int)
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotBar(int)
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotPoints(int, int)
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotLine(int)
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotPoint(int)
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
 </UL>
 
-<P><STRONG><a name="[bb]"></a>ST7735_DrawFastHLine(short, short, short, unsigned short)</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<P><STRONG><a name="[bb]"></a>ST7735_DrawFastVLine(short, short, short, unsigned short)</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotNextErase()
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotdBfs(int)
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotBar(int)
 </UL>
 
-<P><STRONG><a name="[bc]"></a>ST7735_DrawSmallCircle(short, short, unsigned short)</STRONG> (Thumb, 158 bytes, Stack size 40 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<P><STRONG><a name="[bc]"></a>ST7735_DrawFastHLine(short, short, short, unsigned short)</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
 </UL>
 
-<P><STRONG><a name="[bd]"></a>ST7735_DrawCircle(short, short, unsigned short)</STRONG> (Thumb, 158 bytes, Stack size 40 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<P><STRONG><a name="[bd]"></a>ST7735_DrawSmallCircle(short, short, unsigned short)</STRONG> (Thumb, 158 bytes, Stack size 40 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
 </UL>
 
-<P><STRONG><a name="[c5]"></a>ST7735_Color565(unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotNextErase()
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotClear(int, int)
+<P><STRONG><a name="[be]"></a>ST7735_DrawCircle(short, short, unsigned short)</STRONG> (Thumb, 158 bytes, Stack size 40 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+</UL>
+
+<P><STRONG><a name="[c6]"></a>ST7735_Color565(unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotNextErase()
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotClear(int, int)
 </UL>
 
 <P><STRONG><a name="[10f]"></a>ST7735_SwapColor(unsigned short)</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, st7735.o(.text), UNUSED)
 
-<P><STRONG><a name="[be]"></a>ST7735_DrawBitmap(short, short, const unsigned short*, short, short)</STRONG> (Thumb, 360 bytes, Stack size 40 bytes, st7735.o(.text))
+<P><STRONG><a name="[bf]"></a>ST7735_DrawBitmap(short, short, const unsigned short*, short, short)</STRONG> (Thumb, 360 bytes, Stack size 40 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;backgroundPixel(int, int)
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;backgroundPixel(int, int)
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floatAnimation()
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
 </UL>
 
-<P><STRONG><a name="[bf]"></a>ST7735_DrawCharS(short, short, char, short, short, unsigned char)</STRONG> (Thumb, 236 bytes, Stack size 48 bytes, st7735.o(.text))
+<P><STRONG><a name="[c0]"></a>ST7735_DrawCharS(short, short, char, short, short, unsigned char)</STRONG> (Thumb, 236 bytes, Stack size 48 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec(unsigned)
+<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec(unsigned)
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawString(unsigned short, unsigned short, char*, short)
 </UL>
 
 <P><STRONG><a name="[9a]"></a>ST7735_DrawChar(short, short, char, short, short, unsigned char)</STRONG> (Thumb, 264 bytes, Stack size 56 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = ST7735_DrawChar(short, short, char, short, short, unsigned char) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor(unsigned short)
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor(unsigned short)
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 </UL>
@@ -1491,137 +1495,137 @@ Global Symbols
 <P><STRONG><a name="[9c]"></a>ST7735_DrawString(unsigned short, unsigned short, char*, short)</STRONG> (Thumb, 84 bytes, Stack size 32 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec(unsigned)
+<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec(unsigned)
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 </UL>
 
-<P><STRONG><a name="[c0]"></a>fillmessage(unsigned)</STRONG> (Thumb, 64 bytes, Stack size 12 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillmessage(unsigned)
+<P><STRONG><a name="[c1]"></a>fillmessage(unsigned)</STRONG> (Thumb, 64 bytes, Stack size 12 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillmessage(unsigned)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec(unsigned)
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillmessage(unsigned)
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec(unsigned)
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillmessage(unsigned)
 </UL>
 
-<P><STRONG><a name="[c1]"></a>ST7735_OutUDec(unsigned)</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillmessage(unsigned)
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
+<P><STRONG><a name="[c2]"></a>ST7735_OutUDec(unsigned)</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fillmessage(unsigned)
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawString(unsigned short, unsigned short, char*, short)
 </UL>
 
-<P><STRONG><a name="[c2]"></a>ST7735_SetRotation(unsigned char)</STRONG> (Thumb, 200 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
+<P><STRONG><a name="[c3]"></a>ST7735_SetRotation(unsigned char)</STRONG> (Thumb, 200 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
 </UL>
 
-<P><STRONG><a name="[c3]"></a>ST7735_InvertDisplay(int)</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, st7735.o(.text))
+<P><STRONG><a name="[c4]"></a>ST7735_InvertDisplay(int)</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ST7735_InvertDisplay(int)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deselect()
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
-</UL>
-
-<P><STRONG><a name="[c4]"></a>ST7735_PlotClear(int, int)</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_Color565(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
 </UL>
 
-<P><STRONG><a name="[c6]"></a>ST7735_PlotPoint(int)</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<P><STRONG><a name="[c5]"></a>ST7735_PlotClear(int, int)</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_Color565(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[c7]"></a>ST7735_PlotLine(int)</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<P><STRONG><a name="[c7]"></a>ST7735_PlotPoint(int)</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[c8]"></a>ST7735_PlotPoints(int, int)</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<P><STRONG><a name="[c8]"></a>ST7735_PlotLine(int)</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[c9]"></a>ST7735_PlotBar(int)</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
+<P><STRONG><a name="[c9]"></a>ST7735_PlotPoints(int, int)</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[ca]"></a>ST7735_PlotdBfs(int)</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
+<P><STRONG><a name="[ca]"></a>ST7735_PlotBar(int)</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
+</UL>
+
+<P><STRONG><a name="[cb]"></a>ST7735_PlotdBfs(int)</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
 </UL>
 
 <P><STRONG><a name="[110]"></a>ST7735_PlotNext()</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, st7735.o(.text), UNUSED)
 
-<P><STRONG><a name="[cb]"></a>ST7735_PlotNextErase()</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_Color565(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
+<P><STRONG><a name="[cc]"></a>ST7735_PlotNextErase()</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_Color565(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[cc]"></a>ST7735_OutChar</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
+<P><STRONG><a name="[cd]"></a>ST7735_OutChar</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS(short, short, char, short, short, unsigned char)
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawString(unsigned short, unsigned short, char*, short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
 </UL>
 
-<P><STRONG><a name="[cd]"></a>ST7735_OutString</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
+<P><STRONG><a name="[ce]"></a>ST7735_OutString</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
 </UL>
 
-<P><STRONG><a name="[d2]"></a>ST7735_SetTextColor(unsigned short)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Color(unsigned)
+<P><STRONG><a name="[d3]"></a>ST7735_SetTextColor(unsigned short)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Color(unsigned)
 </UL>
 
-<P><STRONG><a name="[a9]"></a>Output_Init()</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, st7735.o(.text))
+<P><STRONG><a name="[aa]"></a>Output_Init()</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = Output_Init() &rArr; ST7735_InitR(initRFlags) &rArr; ST7735_FillScreen(unsigned short) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InvertDisplay(int)
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
+<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InvertDisplay(int)
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_On()
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_On()
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ce]"></a>Output_Clear()</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
+<P><STRONG><a name="[cf]"></a>Output_Clear()</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Off()
-</UL>
-
-<P><STRONG><a name="[cf]"></a>Output_Off()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Clear()
+<BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Off()
 </UL>
 
-<P><STRONG><a name="[d0]"></a>Output_On()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
+<P><STRONG><a name="[d0]"></a>Output_Off()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Clear()
 </UL>
 
-<P><STRONG><a name="[d1]"></a>Output_Color(unsigned)</STRONG> (Thumb, 12 bytes, Stack size 4 bytes, st7735.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetTextColor(unsigned short)
+<P><STRONG><a name="[d1]"></a>Output_On()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init()
+</UL>
+
+<P><STRONG><a name="[d2]"></a>Output_Color(unsigned)</STRONG> (Thumb, 12 bytes, Stack size 4 bytes, st7735.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetTextColor(unsigned short)
 </UL>
 
 <P><STRONG><a name="[91]"></a>ADC_Init()</STRONG> (Thumb, 186 bytes, Stack size 0 bytes, slidepot.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_Init()
 </UL>
 
-<P><STRONG><a name="[d5]"></a>ADC_In()</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, slidepot.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::PosSect(unsigned char)
+<P><STRONG><a name="[d6]"></a>ADC_In()</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, slidepot.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::PosSect(unsigned char)
 </UL>
 
-<P><STRONG><a name="[ad]"></a>SlidePot::SlidePot(unsigned, unsigned)</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, slidepot.o(.text))
+<P><STRONG><a name="[ae]"></a>SlidePot::SlidePot(unsigned, unsigned)</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, slidepot.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sti___8_main_cpp_my
 </UL>
 
 <P><STRONG><a name="[111]"></a>SlidePot::SlidePot__sub_object(unsigned, unsigned)</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, slidepot.o(.text), UNUSED)
 
-<P><STRONG><a name="[d4]"></a>SlidePot::Convert(unsigned)</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, slidepot.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::Save(unsigned)
+<P><STRONG><a name="[d5]"></a>SlidePot::Convert(unsigned)</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, slidepot.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::Save(unsigned)
 </UL>
 
-<P><STRONG><a name="[d3]"></a>SlidePot::Save(unsigned)</STRONG> (Thumb, 24 bytes, Stack size 12 bytes, slidepot.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::Convert(unsigned)
+<P><STRONG><a name="[d4]"></a>SlidePot::Save(unsigned)</STRONG> (Thumb, 24 bytes, Stack size 12 bytes, slidepot.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::Convert(unsigned)
 </UL>
 
 <P><STRONG><a name="[112]"></a>SlidePot::Sync()</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, slidepot.o(.text), UNUSED)
@@ -1630,45 +1634,44 @@ Global Symbols
 
 <P><STRONG><a name="[114]"></a>SlidePot::Distance()</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, slidepot.o(.text), UNUSED)
 
-<P><STRONG><a name="[a1]"></a>SlidePot::PosSect(unsigned char)</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, slidepot.o(.text))
+<P><STRONG><a name="[a0]"></a>SlidePot::PosSect(unsigned char)</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, slidepot.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SlidePot::PosSect(unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_In()
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_In()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
 </UL>
 
-<P><STRONG><a name="[d6]"></a>playSample()</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, sound.o(.text))
+<P><STRONG><a name="[d7]"></a>playSample()</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, sound.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = playSample()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Stop()
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Out(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Stop()
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Out(unsigned char)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sound.o(.text)
 </UL>
-<P><STRONG><a name="[aa]"></a>Sound_Init()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, sound.o(.text))
+<P><STRONG><a name="[ab]"></a>Sound_Init()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, sound.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Sound_Init()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Init()
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Init()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ac]"></a>Sound_Play(int)</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, sound.o(.text))
+<P><STRONG><a name="[ad]"></a>Sound_Play(int)</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, sound.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Sound_Play(int)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Init(void(*)(), unsigned)
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Init(void(*)(), unsigned)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9d]"></a>Timer0_Init(void(*)(), unsigned)</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, timer0.o(.text))
+<P><STRONG><a name="[a5]"></a>Timer0_Init(void(*)(), unsigned)</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, timer0.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 </UL>
 
-<P><STRONG><a name="[a5]"></a>Timer0_Stop()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer0.o(.text))
+<P><STRONG><a name="[a6]"></a>Timer0_Stop()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer0.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
 </UL>
 
@@ -1677,8 +1680,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[da]"></a>Timer1_Init(void(*)(), unsigned)</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, timer1.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Play(int)
+<P><STRONG><a name="[db]"></a>Timer1_Init(void(*)(), unsigned)</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, timer1.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound_Play(int)
 </UL>
 
 <P><STRONG><a name="[22]"></a>TIMER1A_Handler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, timer1.o(.text))
@@ -1686,8 +1689,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[d8]"></a>Timer1A_Stop()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer1.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;playSample()
+<P><STRONG><a name="[d9]"></a>Timer1A_Stop()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer1.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;playSample()
 </UL>
 
 <P><STRONG><a name="[115]"></a>UART_Init()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
@@ -1696,28 +1699,28 @@ Global Symbols
 
 <P><STRONG><a name="[117]"></a>UART_InStatus()</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
 
-<P><STRONG><a name="[dd]"></a>UART_OutChar(char)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutUDec(unsigned)
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutString(char*)
+<P><STRONG><a name="[de]"></a>UART_OutChar(char)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutUDec(unsigned)
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutString(char*)
 </UL>
 
 <P><STRONG><a name="[13]"></a>UART1_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, uart.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[dc]"></a>UART_OutString(char*)</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar(char)
+<P><STRONG><a name="[dd]"></a>UART_OutString(char*)</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, uart.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar(char)
 </UL>
 
-<P><STRONG><a name="[de]"></a>UART_OutUDec(unsigned)</STRONG> (Thumb, 42 bytes, Stack size 12 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutUDec(unsigned)
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar(char)
+<P><STRONG><a name="[df]"></a>UART_OutUDec(unsigned)</STRONG> (Thumb, 42 bytes, Stack size 12 bytes, uart.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutUDec(unsigned)
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar(char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutUDec(unsigned)
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutUDec(unsigned)
 </UL>
 
 <P><STRONG><a name="[118]"></a>UART_InMessage(char*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
 
-<P><STRONG><a name="[df]"></a>Queue::Queue()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, fifo.o(.text))
+<P><STRONG><a name="[e0]"></a>Queue::Queue()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, fifo.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sti___8_UART_cpp_RxFifo
 </UL>
 
@@ -1733,24 +1736,24 @@ Global Symbols
 
 <P><STRONG><a name="[11e]"></a>Queue::Print()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, fifo.o(.text), UNUSED)
 
-<P><STRONG><a name="[e1]"></a>ADC1_Init()</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, texas.o(.text))
+<P><STRONG><a name="[e2]"></a>ADC1_Init()</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, texas.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ADC1_Init()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
 </UL>
 
-<P><STRONG><a name="[e0]"></a>UART0_Init()</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, texas.o(.text))
+<P><STRONG><a name="[e1]"></a>UART0_Init()</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, texas.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART0_Init()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TExaS_Init()
 </UL>
 
-<P><STRONG><a name="[a7]"></a>TExaS_Init()</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, texas.o(.text))
+<P><STRONG><a name="[a8]"></a>TExaS_Init()</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, texas.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TExaS_Init() &rArr; UART0_Init()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Init()
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_Init()
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init(unsigned)
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Init()
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_Init()
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init(unsigned)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1763,15 +1766,15 @@ Global Symbols
 <P><STRONG><a name="[7a]"></a>floatAnimation()</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, sprite.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = floatAnimation() &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
-<P><STRONG><a name="[b3]"></a>backgroundPixel(int, int)</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, images.o(.text))
+<P><STRONG><a name="[b4]"></a>backgroundPixel(int, int)</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, images.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = backgroundPixel(int, int)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 </UL>
 
 <P><STRONG><a name="[120]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
@@ -1790,8 +1793,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = __user_setup_stackheap
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
 </UL>
@@ -1800,14 +1803,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = exit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
 <P><STRONG><a name="[123]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[e2]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<P><STRONG><a name="[e3]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
@@ -1823,53 +1826,52 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[98]"></a>Image::draw(int, int)</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, main.o(i._ZN5Image4drawEii))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<P><STRONG><a name="[94]"></a>Tile::draw()</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, main.o(i._ZN4Tile4drawEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = Tile::draw() &rArr; Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sprite::draw()
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
-</UL>
-
-<P><STRONG><a name="[93]"></a>Image::erase(int, int)</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, main.o(i._ZN5Image5eraseEii))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Image::erase(int, int) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-</UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameUpdate()
-</UL>
-
-<P><STRONG><a name="[96]"></a>Image::Image(int, int, const unsigned short*)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN5ImageC1EiiPKt))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
-</UL>
-
-<P><STRONG><a name="[128]"></a>Image::Image__sub_object(int, int, const unsigned short*)</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, main.o(i._ZN5ImageC1EiiPKt), UNUSED)
-
-<P><STRONG><a name="[db]"></a>Sound::Sound(const unsigned char*, unsigned)</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, sound.o(i._ZN5SoundC1EPKhj))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sti___9_Sound_cpp_c0efdbab
-</UL>
-
-<P><STRONG><a name="[129]"></a>Sound::Sound__sub_object(const unsigned char*, unsigned)</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, sound.o(i._ZN5SoundC1EPKhj), UNUSED)
-
-<P><STRONG><a name="[94]"></a>Sprite::draw()</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, main.o(i._ZN6Sprite4drawEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Sprite::draw() &rArr; Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-</UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Image::draw(int, int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameUpdate()
 </UL>
 
-<P><STRONG><a name="[97]"></a>Sprite::Sprite(int, int, Image*)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN6SpriteC1EiiP5Image))
+<P><STRONG><a name="[97]"></a>Image::draw(int, int)</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, main.o(i._ZN5Image4drawEii))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tile::draw()
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
+</UL>
+
+<P><STRONG><a name="[a2]"></a>Image::erase(int, int)</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, main.o(i._ZN5Image5eraseEii))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Image::erase(int, int) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
+</UL>
+
+<P><STRONG><a name="[96]"></a>Image::Image(int, int, const unsigned short*)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN5ImageC1EiiPKt))
+<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;languageSelectScreen()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
+</UL>
+
+<P><STRONG><a name="[128]"></a>Image::Image__sub_object(int, int, const unsigned short*)</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, main.o(i._ZN5ImageC1EiiPKt), UNUSED)
+
+<P><STRONG><a name="[dc]"></a>Sound::Sound(const unsigned char*, unsigned)</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, sound.o(i._ZN5SoundC1EPKhj))
+<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sti___9_Sound_cpp_c0efdbab
+</UL>
+
+<P><STRONG><a name="[129]"></a>Sound::Sound__sub_object(const unsigned char*, unsigned)</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, sound.o(i._ZN5SoundC1EPKhj), UNUSED)
+
+<P><STRONG><a name="[99]"></a>Sprite::Sprite(int, int, Image*)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN6SpriteC1EiiP5Image))
 <BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuScreen()
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScreen()
 </UL>
@@ -1882,102 +1884,102 @@ Local Symbols
 <P><STRONG><a name="[7b]"></a>__sti___8_main_cpp_my</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __sti___8_main_cpp_my
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::SlidePot(unsigned, unsigned)
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::SlidePot(unsigned, unsigned)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.init_array)
 </UL>
-<P><STRONG><a name="[af]"></a>writecommand(unsigned char)</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, st7735.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InvertDisplay(int)
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetRotation(unsigned char)
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
+<P><STRONG><a name="[b0]"></a>writecommand(unsigned char)</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, st7735.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InvertDisplay(int)
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetRotation(unsigned char)
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
 </UL>
 
-<P><STRONG><a name="[b0]"></a>writedata(unsigned char)</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, st7735.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetRotation(unsigned char)
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCircle(short, short, unsigned short)
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawSmallCircle(short, short, unsigned short)
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastHLine(short, short, short, unsigned short)
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor(unsigned short)
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<P><STRONG><a name="[b1]"></a>writedata(unsigned char)</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, st7735.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetRotation(unsigned char)
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCircle(short, short, unsigned short)
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawSmallCircle(short, short, unsigned short)
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastHLine(short, short, short, unsigned short)
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor(unsigned short)
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[b4]"></a>deselect()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InvertDisplay(int)
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetRotation(unsigned char)
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCircle(short, short, unsigned short)
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawSmallCircle(short, short, unsigned short)
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastHLine(short, short, short, unsigned short)
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<P><STRONG><a name="[b5]"></a>deselect()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InvertDisplay(int)
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetRotation(unsigned char)
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCircle(short, short, unsigned short)
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawSmallCircle(short, short, unsigned short)
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastHLine(short, short, short, unsigned short)
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawChar(short, short, char, short, short, unsigned char)
 </UL>
 
-<P><STRONG><a name="[ae]"></a>commandList(const unsigned char*)</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(.text))
+<P><STRONG><a name="[af]"></a>commandList(const unsigned char*)</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = commandList(const unsigned char*) &rArr; Delay1ms(unsigned)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms(unsigned)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
 </UL>
 
-<P><STRONG><a name="[b1]"></a>commonInit(const unsigned char*)</STRONG> (Thumb, 342 bytes, Stack size 8 bytes, st7735.o(.text))
+<P><STRONG><a name="[b2]"></a>commonInit(const unsigned char*)</STRONG> (Thumb, 342 bytes, Stack size 8 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = commonInit(const unsigned char*) &rArr; commandList(const unsigned char*) &rArr; Delay1ms(unsigned)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList(const unsigned char*)
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms(unsigned)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitB()
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR(initRFlags)
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitB()
 </UL>
 
-<P><STRONG><a name="[b2]"></a>setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(.text))
+<P><STRONG><a name="[b3]"></a>setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand(unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCircle(short, short, unsigned short)
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawSmallCircle(short, short, unsigned short)
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastHLine(short, short, short, unsigned short)
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCircle(short, short, unsigned short)
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawSmallCircle(short, short, unsigned short)
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastHLine(short, short, short, unsigned short)
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawFastVLine(short, short, short, unsigned short)
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawBitmap(short, short, const unsigned short*, short, short)
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawChar(short, short, char, short, short, unsigned char)
 </UL>
 
-<P><STRONG><a name="[b9]"></a>pushColor(unsigned short)</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, st7735.o(.text))
+<P><STRONG><a name="[ba]"></a>pushColor(unsigned short)</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = pushColor(unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata(unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel(short, short, unsigned short)
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawChar(short, short, char, short, short, unsigned char)
 </UL>
 
 <P><STRONG><a name="[7c]"></a>__sti___9_Sound_cpp_c0efdbab</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sound.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __sti___9_Sound_cpp_c0efdbab
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound::Sound(const unsigned char*, unsigned)
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sound::Sound(const unsigned char*, unsigned)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sound.o(.init_array)
 </UL>
 <P><STRONG><a name="[7d]"></a>__sti___8_UART_cpp_RxFifo</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __sti___8_UART_cpp_RxFifo
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Queue::Queue()
+<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Queue::Queue()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> uart.o(.init_array)
 </UL><P>

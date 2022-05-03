@@ -95,6 +95,8 @@ void Timer1_Init(void(*task)(void), uint32_t period);
 void Delay1ms(uint32_t);
 void gameUpdate();
 
+bool ongoingGame = false;
+
 enum ScreenMode {
 	MENU,
 	LANG_SELECT,
@@ -124,7 +126,7 @@ extern Sprite* spriteToAnimate;
 int main(void){
   PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
   TExaS_Init();
-  Random_Init(1);
+  Random_Init(859378);
   Output_Init();
 	Sound_Init();
 	Input_Init();
@@ -184,6 +186,8 @@ void transitionCollapse() {
 }
 
 bool IO_Touch(int buttonIndex, bool wait) {
+	
+	buttonIndex = 0;
 
 	if (wait) {
 		
@@ -367,27 +371,42 @@ void difficultySelectScreen() {
 }
 
 Tile* tiles[10] = {};
+int tilesLength = 0;
 
 void gameScreen() {
 	
 	Image EasyLevelBackground(128, 160, EasyLevelBackgroundSrc);
 	Image BrickBlockMedium(32, 32, BrickBlockMediumSrc);
 	
-	Sprite Block1(0, 160, &BrickBlockMedium);
-	Sprite Block2(32, 128, &BrickBlockMedium);
-	Sprite Block3(32, 96, &BrickBlockMedium);
-	Sprite Block4(64, 64, &BrickBlockMedium);
-	Sprite Block5(0, 32, &BrickBlockMedium);
+//	Sprite Block1(0, 160, &BrickBlockMedium);
+//	Sprite Block2(32, 128, &BrickBlockMedium);
+//	Sprite Block3(32, 96, &BrickBlockMedium);
+//	Sprite Block4(64, 64, &BrickBlockMedium);
+//	Sprite Block5(0, 32, &BrickBlockMedium);
+	
+//	Block1.draw();
+//	Block2.draw();
+//	Block3.draw();
+//	Block4.draw();
+//	Block5.draw();
 	
 	EasyLevelBackground.draw(0, 160);
 	
-	Block1.draw();
-	Block2.draw();
-	Block3.draw();
-	Block4.draw();
-	Block5.draw();
-	
 	ST7735_FillRect(0, 0, 128, 12, 0x0000);
+	
+	for (int row = 0; row < 5; row++) {
+
+		int col = Random() % 4;
+		
+		Sprite tempBlock(32 * col, 32 * row, &BrickBlockMedium);
+		Tile tempTile(&tempBlock, false, 10, col);
+		
+		tempTile.draw();
+		
+		tiles[tilesLength] = &tempTile;
+		tilesLength++;
+
+	}
 
 	// Countdown
 	ST7735_DrawChar(61, 2, '3', 0xFFFF, 0x0000, 1);
@@ -399,20 +418,27 @@ void gameScreen() {
 	char* goString = "Go!";
 	ST7735_DrawString(61, 8, goString, 0xFFFF);
 	
-	Timer0_Init(&gameUpdate, 960000);
+	for (int i = 0; i < tilesLength; i++) {
+		tiles[i]->falling = true;
+	}
 	
-	Delay1ms(3000);
-
+	//Timer0_Init(&gameUpdate, 960000);
+	
+	Delay1ms(500);
+	
+	gameUpdate();
+	
+	ongoingGame = true;
+	while(ongoingGame) {};
+	
 }
 
 void gameUpdate() {
 
-	for (int i = 0; i < 10; i++) {
-	
-		if (tiles[i] == NULL) break;
-		
+	for (int i = 0; i < tilesLength; i++) {
+			
 		if (tiles[i]->falling) tiles[i]->fall();
-	
+		
 	}
 }
 

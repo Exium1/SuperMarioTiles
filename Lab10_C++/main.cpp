@@ -61,6 +61,7 @@
 #include "Timer0.h"
 #include "Sprite.h"
 #include "TexaS.h"
+#include "Tile.h"
 
 SlidePot my(1500,0);
 
@@ -68,13 +69,17 @@ extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
 extern "C" void SysTick_Handler(void);
 
-void Buttons_Init() {
+void Input_Init() {
 	
+	// Buttons
 	SYSCTL_RCGCGPIO_R |= 0x10;
 	while((SYSCTL_RCGCGPIO_R & 0x10) == 0) {};
 		
-	GPIO_PORTE_DEN_R |= 0xF;
-	GPIO_PORTE_DIR_R &= ~0xF;
+	GPIO_PORTE_DEN_R |= 0x1F;
+	GPIO_PORTE_DIR_R &= ~0x1F;
+		
+	// ADC
+	ADC_Init();
 
 }
 
@@ -88,6 +93,7 @@ void Output_Init();
 void Sound_Play(int index);
 void Timer1_Init(void(*task)(void), uint32_t period);
 void Delay1ms(uint32_t);
+void gameUpdate();
 
 enum ScreenMode {
 	MENU,
@@ -111,7 +117,9 @@ enum Difficulty {
 ScreenMode currentScreen = MENU;
 Language language = ENGLISH;
 Difficulty difficulty = EASY;
-Sprite* spriteToAnimate;
+
+extern Image* currentBackground;
+extern Sprite* spriteToAnimate;
 
 int main(void){
   PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
@@ -119,7 +127,7 @@ int main(void){
   Random_Init(1);
   Output_Init();
 	Sound_Init();
-	Buttons_Init();
+	Input_Init();
   EnableInterrupts();
 	
 	Sound_Play(0);
@@ -182,12 +190,14 @@ void menuScreen() {
 	
 	Sprite GoldCoinSprite(53, 100, &GoldCoinBig);
 	
+	currentBackground = &MainMenuBackground;
+	
 	MainMenuBackground.draw(0, 160);	
 	GoldCoinSprite.animate(FLOATING);
 	
 	// Continues only when any button is pressed, then released
-	while (false && (GPIO_PORTE_DATA_R & 0xF) == 0) {};
-	while ((GPIO_PORTE_DATA_R & 0xF) != 0) {};
+	while ((GPIO_PORTE_DATA_R & 0x1) == 0) {};
+	//while ((GPIO_PORTE_DATA_R & 0x1F) != 0) {};
 		
 	Delay1ms(5000);
 		
@@ -212,7 +222,7 @@ void languageSelectScreen() {
 		if (my.PosSect(2) == 0){
 			ButtonHighlighted.draw(15, 71);
 			LanguageEnglish.draw(18, 68);
-			if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+			if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
 				language = ENGLISH;
 				break;
 			} 
@@ -220,7 +230,7 @@ void languageSelectScreen() {
 		if (my.PosSect(2) == 1){
 			ButtonHighlighted.draw(15, 139);
 			LanguageItaliano.draw(18, 136);
-			if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+			if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
 				language = ITALIANO;
 				break;
 			} 
@@ -251,7 +261,7 @@ void difficultySelectScreen() {
 			if (my.PosSect(3) == 0){
 				ButtonHighlighted.draw(15, 54);
 				DifficultyEasy.draw(18, 51);
-				if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+				if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
 					difficulty = EASY;
 					break;
 				}
@@ -259,19 +269,20 @@ void difficultySelectScreen() {
 			if (my.PosSect(3) == 1){
 				ButtonHighlighted.draw(15, 105);
 				DifficultyNormal.draw(18, 102);
-				if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+				if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
 					difficulty = NORMAL;
 					break;
 				}
 			}
 			if (my.PosSect(3) == 2){
 				ButtonHighlighted.draw(15, 156);
-				DifficultyHard.draw(18, 153);.
-				if ((GPIO_PORTE_DATA_R & 0x10) == 0x10) {
+				DifficultyHard.draw(18, 153);
+				if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
 					difficulty = HARD;
 					break;
 				}
 			}
+		}
 	}
 	
 	if (language == ITALIANO){}//todo 
@@ -281,6 +292,8 @@ void difficultySelectScreen() {
 	transitionCollapse();
 
 }
+
+Tile* tiles[10] = {};
 
 void gameScreen() {
 	
@@ -313,7 +326,20 @@ void gameScreen() {
 	char* goString = "Go!";
 	ST7735_DrawString(61, 8, goString, 0xFFFF);
 	
+	Timer0_Init(&gameUpdate, 960000);
+	
 	Delay1ms(3000);
 
+}
+
+void gameUpdate() {
+
+	for (int i = 0; i < 10; i++) {
+	
+		if (tiles[i] == NULL) break;
+		
+		if (tiles[i]->falling) tiles[i]->fall();
+	
+	}
 }
 

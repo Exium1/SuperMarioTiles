@@ -120,6 +120,7 @@
 //#include <stdio.h>
 #include <stdint.h>
 #include "ST7735.h"
+#include "Images.h"
 #include "../inc/tm4c123gh6pm.h"
 
 // 16 rows (0 to 15) and 21 characters (0 to 20)
@@ -518,7 +519,6 @@ static uint8_t Rotation;           // 0 to 3
 static enum initRFlags TabColor;
 static int16_t _width = ST7735_TFTWIDTH;   // this could probably be a constant, except it is used in Adafruit_GFX and depends on image rotation
 static int16_t _height = ST7735_TFTHEIGHT;
-
 
 // The Data/Command pin must be valid when the eighth bit is
 // sent.  The SSI module has hardware input and output FIFOs
@@ -971,8 +971,21 @@ void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
 
   for(y=h; y>0; y--) {
     for(x=w; x>0; x--) {
-      writedata(hi);
-      writedata(lo);
+			
+			if (color == 0x07E0) {
+				
+				uint16_t newPixel = backgroundPixel(x, y);
+				
+				writedata((uint8_t)(newPixel >> 8));
+				writedata((uint8_t)(newPixel));
+				
+			} else {
+				
+				writedata(hi);
+				writedata(lo);
+			}
+							
+
     }
   }
 
@@ -1084,6 +1097,7 @@ uint16_t ST7735_SwapColor(uint16_t x) {
 //        h     number of pixels tall
 // Output: none
 // Must be less than or equal to 128 pixels wide by 160 pixels high
+
 void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h){
   int16_t skipC = 0;                      // non-zero if columns need to be skipped due to clipping
   int16_t originalWidth = w;              // save this value; even if not all columns fit on the screen, the image is still this width in ROM
@@ -1122,10 +1136,20 @@ void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, i
 
   for(y=0; y<h; y=y+1){
     for(x=0; x<w; x=x+1){			
-                                        // send the top 8 bits
-      writedata((uint8_t)(image[i] >> 8));
-                                        // send the bottom 8 bits
-      writedata((uint8_t)image[i]);
+			
+			if (image[i] == 0x07E0) {
+				
+				uint16_t newPixel = backgroundPixel(x, y);
+				
+				writedata((uint8_t)(newPixel >> 8));
+				writedata((uint8_t)(newPixel));
+				
+			} else {
+			
+				writedata((uint8_t)(image[i] >> 8)); // send the bottom 8 bits
+				writedata((uint8_t)image[i]); // send the top 8 bits
+			}
+			
       i = i + 1;                        // go to the next pixel
     }
     i = i + skipC;

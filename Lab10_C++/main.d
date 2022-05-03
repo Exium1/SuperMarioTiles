@@ -44,3 +44,6 @@
 .\main.o: Sprite.h
 .\main.o: Images.h
 .\main.o: TexaS.h
+.\main.o: Tile.h
+.\main.o: Sprite.h
+.\main.o: Images.h

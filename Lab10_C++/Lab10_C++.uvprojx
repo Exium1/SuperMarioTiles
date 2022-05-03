@@ -133,7 +133,7 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>1</Capability>
+            <Capability>0</Capability>
             <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
@@ -448,6 +448,16 @@
               <FileType>8</FileType>
               <FilePath>.\TExaS.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Sprite.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sprite.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Images.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Images.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -469,5 +479,14 @@
     </components>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>Lab10_C++</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

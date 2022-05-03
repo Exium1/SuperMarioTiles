@@ -23,6 +23,7 @@ class Sprite {
 
 	public: 
 		
+		// Bottom left
 		int x;
 		int y;
 		Image* image;

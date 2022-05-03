@@ -36,7 +36,7 @@ class Image {
 		
 		void erase(int x, int y) {
 		
-			ST7735_FillRect(x, y, this->width, this->height, 0x07E0);
+			ST7735_FillRect(x, (y - this->height + 1), this->width, this->height, 0x07E0);
 		
 		}
 

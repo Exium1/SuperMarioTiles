@@ -13,17 +13,17 @@
 // Output: none
 // measures from PD2, analog channel 5
 void ADC_Init(void){ 
-//*** students write this ******
+//* students write this **
 
     SYSCTL_RCGCADC_R |= 0x0001;
-    
+
     SYSCTL_RCGCGPIO_R |= 0x08;
     while((SYSCTL_PRGPIO_R&0x08) != 0x08) {};
     GPIO_PORTD_DIR_R &= ~0x04;
     GPIO_PORTD_AFSEL_R |= 0x04;
     GPIO_PORTD_DEN_R &= ~0x04;
     GPIO_PORTD_AMSEL_R |= 0x04;
-        
+
     ADC0_PC_R &= ~0xF;              // 7) clear max sample rate field
     ADC0_PC_R |= 0x1;               //    configure for 125K samples/sec
     ADC0_SSPRI_R = 0x0123;          // 8) Sequencer 3 is highest priority
@@ -34,7 +34,7 @@ void ADC_Init(void){
     ADC0_IM_R &= ~0x0008;           // 13) disable SS3 interrupts
     ADC0_ACTSS_R |= 0x0008;         // 14) enable sample sequencer 3
 //    ADC0_SAC_R = 0x05;
-            
+
 }
 
 //------------ADCIn------------
@@ -113,7 +113,8 @@ uint32_t SlidePot::Distance(void){  // return distance value (0 to 2000), 0.001c
 
 uint32_t SlidePot::PosSect(uint8_t n){
 	int calc = 4096/n;
+	int value = 4096 - ADC_In();
 	for (int i = 0; i<n; i++){
-		if (ADC_In() < (i+1)*calc) return i;
+		if (value < (i+1)*calc) return i;
 	}
 }

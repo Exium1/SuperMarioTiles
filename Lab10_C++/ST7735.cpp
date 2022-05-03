@@ -968,14 +968,17 @@ void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
   if((y + h - 1) >= _height) h = _height - y;
 
   setAddrWindow(x, y, x+w-1, y+h-1);
+	
+	int xInitial = x;
+	int yInitial = y;
 
-  for(y=h; y>0; y--) {
-    for(x=w; x>0; x--) {
+  for(y = 0; y < h; y++) {
+    for(x = 0; x < w; x++) {
 			
 			if (color == 0x07E0) {
 				
-				uint16_t newPixel = backgroundPixel(x, y);
-				
+				uint16_t newPixel = backgroundPixel(xInitial + w - x - 1, yInitial + y);
+								
 				writedata((uint8_t)(newPixel >> 8));
 				writedata((uint8_t)(newPixel));
 				

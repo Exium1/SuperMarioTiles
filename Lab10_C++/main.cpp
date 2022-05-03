@@ -183,6 +183,26 @@ void transitionCollapse() {
 	Delay1ms(300);
 }
 
+bool IO_Touch(int buttonIndex, bool wait) {
+
+	if (wait) {
+		
+		while ((GPIO_PORTE_DATA_R & (1 << buttonIndex)) == 0) {};
+		while ((GPIO_PORTE_DATA_R & (1 << buttonIndex)) != 0) {};
+		
+		return true;
+	
+	} else {
+		
+		if (GPIO_PORTE_DATA_R & (1 << buttonIndex)) {
+			
+			while ((GPIO_PORTE_DATA_R & (1 << buttonIndex)) != 0) {};
+			return true;
+				
+		} else return false;
+	}
+}
+
 void menuScreen() {
 	
 	Image MainMenuBackground(128, 160, MainMenuBackgroundSrc);
@@ -195,12 +215,8 @@ void menuScreen() {
 	MainMenuBackground.draw(0, 160);	
 	GoldCoinSprite.animate(FLOATING);
 	
-	// Continues only when any button is pressed, then released
-	while ((GPIO_PORTE_DATA_R & 0x1) == 0) {};
-	//while ((GPIO_PORTE_DATA_R & 0x1F) != 0) {};
-		
-	Delay1ms(5000);
-		
+	IO_Touch(4, true);
+	
 	Timer0_Stop();
 	currentScreen = LANG_SELECT;
 		
@@ -218,23 +234,48 @@ void languageSelectScreen() {
 	LanguageEnglish.draw(18, 68);
 	LanguageItaliano.draw(18, 136);
 	
+	currentBackground = &MarioWorldBackground;
+	
+	bool languageChosen = false;
+
 	while (1) {
 		if (my.PosSect(2) == 0){
 			ButtonHighlighted.draw(15, 71);
 			LanguageEnglish.draw(18, 68);
-			if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
-				language = ENGLISH;
-				break;
-			} 
+						
+			while(my.PosSect(2) == 0) {
+				if (IO_Touch(4, false)) {
+					language = ENGLISH;
+					languageChosen = true;
+					break;
+				}
+			}
+			
+			if (languageChosen) break;
+			
+			ButtonHighlighted.erase(15, 71);
+			LanguageEnglish.draw(18, 68);
+			
 		}
+		
 		if (my.PosSect(2) == 1){
 			ButtonHighlighted.draw(15, 139);
 			LanguageItaliano.draw(18, 136);
-			if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
-				language = ITALIANO;
-				break;
-			} 
-		}		
+						
+			while(my.PosSect(2) == 1) {
+				if (IO_Touch(4, false)) {
+					language = ITALIANO;
+					languageChosen = true;
+					break;
+				} 
+			}
+			
+			if(languageChosen) break;
+		
+			ButtonHighlighted.erase(15, 139);
+			LanguageItaliano.draw(18, 136);
+			
+		}
 	}
 		
 	currentScreen = DIFF_SELECT;
@@ -256,31 +297,63 @@ void difficultySelectScreen() {
 	DifficultyNormal.draw(18, 102);
 	DifficultyHard.draw(18, 153);
 	
+	bool difficultyChosen = false;
+	
 	if (language == ENGLISH){
 		while (1) {
 			if (my.PosSect(3) == 0){
 				ButtonHighlighted.draw(15, 54);
 				DifficultyEasy.draw(18, 51);
-				if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
-					difficulty = EASY;
-					break;
+				
+				while (my.PosSect(3) == 0) {
+					if (IO_Touch(4, false)) {
+						difficulty = EASY;
+						difficultyChosen = true;
+						break;
+					}
 				}
+				
+				if (difficultyChosen) break;
+				
+				ButtonHighlighted.erase(15, 54);
+				DifficultyEasy.draw(18, 51);
+
 			}
+
 			if (my.PosSect(3) == 1){
 				ButtonHighlighted.draw(15, 105);
 				DifficultyNormal.draw(18, 102);
-				if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
-					difficulty = NORMAL;
-					break;
+				
+				while(my.PosSect(3) == 1) {
+					if (IO_Touch(4, false)) {
+						difficulty = NORMAL;
+						difficultyChosen = true;
+						break;
+					}
 				}
+				
+				if (difficultyChosen) break;
+				
+				ButtonHighlighted.erase(15, 105);
+				DifficultyNormal.draw(18, 102);
 			}
+			
 			if (my.PosSect(3) == 2){
 				ButtonHighlighted.draw(15, 156);
 				DifficultyHard.draw(18, 153);
-				if ((GPIO_PORTE_DATA_R & 0x1) == 0x1) {
-					difficulty = HARD;
-					break;
+				
+				while (my.PosSect(3) == 2) {
+					if (IO_Touch(4, false)) {
+						difficulty = HARD;
+						difficultyChosen = true;
+						break;
+					}
 				}
+				
+				if (difficultyChosen) break;
+
+				ButtonHighlighted.erase(15, 156);
+				DifficultyHard.draw(18, 153);
 			}
 		}
 	}

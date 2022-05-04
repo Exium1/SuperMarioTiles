@@ -47,3 +47,4 @@
 .\main.o: Tile.h
 .\main.o: Sprite.h
 .\main.o: Images.h
+.\main.o: Random.h

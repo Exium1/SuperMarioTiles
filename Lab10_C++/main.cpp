@@ -372,10 +372,12 @@ void difficultySelectScreen() {
 
 }
 
-Tile* tiles[10] = {};
+Tile* tiles[6] = {};
 int tilesLength = 0;
 	
-Image BrickBlockMedium(32, 32, BrickBlockMediumSrc);
+Image BlockBrick(32, 32, BlockBrickSrc);
+Image BlockBlank(32, 32, BlockBlankSrc);
+Image BlockQuestion(32, 32, BlockQuestionSrc);
 
 void gameScreen() {
 	
@@ -399,12 +401,12 @@ void gameScreen() {
 
 	ST7735_FillRect(0, 0, 128, 12, 0x0000);
 	
-	for (int row = 0; row < 5; row++) {
+	for (int row = 0; row < 6; row++) {
 
 		int col = Random() % 4;
 		
-		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BrickBlockMedium);		
-		tiles[tilesLength] = new Tile(tempBlock, false, 10, col);
+		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BlockBrick);		
+		tiles[tilesLength] = new Tile(tempBlock, false, 5, col);
 		
 		tiles[tilesLength]->draw();
 		
@@ -434,13 +436,23 @@ void gameScreen() {
 }
 
 void gameUpdate() {
-
-	for (int i = 0; i < tilesLength; i++) {
-			
-		if (tiles[i]->falling) tiles[i]->fall();
+	
+	if (IO_Touch(0, false)) {
 		
 	}
+
+	for (int i = 0; i < tilesLength; i++) {
+		
+		Tile* tile = tiles[i];
+		
+		if (tile->falling) tile->fall();
+		
+		if (tile->sprite->y - tile->sprite->image->height > 160) {
+			tile->reset();
+		}
+	}
 	
-	ST7735_FillRect(0, 0, 128, 12, 0x0000);
+	ST7735_FillRect(0, 0, 128, 12, 0x0000); // Top bar
+	ST7735_FillRect(0, 128, 128, 3, 0x0000); // Hit bar
 }
 

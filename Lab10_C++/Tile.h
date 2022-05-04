@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include "ST7735.h"
+#include "Random.h"
 
 class Tile {
 
@@ -35,6 +36,13 @@ class Tile {
 		void draw() {
 		
 			this->sprite->draw();
+		
+		}
+		
+		void reset() {
+		
+			this->sprite->y = 0; // Move back to top
+			this->sprite->x = (Random() % 4) * 32; // Move into random col
 		
 		}
 	

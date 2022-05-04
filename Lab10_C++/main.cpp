@@ -380,7 +380,7 @@ void difficultySelectScreen() {
 }
 
 Tile* tiles[6] = {};
-// Tile* targetTile;
+Tile* targetTile;
 int tilesLength = 0;
 	
 Image BlockBrick(32, 32, BlockBrickSrc);
@@ -401,13 +401,11 @@ void gameScreen() {
 
 		int col = Random() % 4;
 		
-		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BlockBrick);		
-		tiles[tilesLength] = new Tile(tempBlock, false, 1, col);
+		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BlockBrick);
 		
-		tiles[tilesLength]->draw();
+		tiles[row] = new Tile(tempBlock, false, 4, col);
+		tiles[row]->draw();
 		
-		tilesLength++;
-
 	}
 
 	// Countdown
@@ -420,7 +418,7 @@ void gameScreen() {
 	char* goString = "Go!";
 	ST7735_DrawString(61, 8, goString, 0xFFFF);
 	
-	for (int i = 0; i < tilesLength; i++) {
+	for (int i = 0; i < 6; i++) {
 		tiles[i]->falling = true;
 	}
 	
@@ -445,13 +443,13 @@ void gameUpdate() {
 		else if (portEVal == 4) index = 2;
 		else if (portEVal == 8) index = 3;
 		
-		if(targetTile->col == index) {
+		if (targetTile->col == index && !targetTile->clicked) {
 			// right tile hit
 			
 			targetTile->clicked = true;
 			targetTile->sprite->image = &BlockBlank;
 			
-			playerScore++;
+			playerScore += 1;
 			
 		} else {
 			
@@ -462,7 +460,7 @@ void gameUpdate() {
 		}
 	}
 
-	for (int i = 0; i < tilesLength; i++) {
+	for (int i = 0; i < 6; i++) {
 		
 		Tile* tile = tiles[i];
 		
@@ -480,8 +478,8 @@ void gameUpdate() {
 	ST7735_SetCursor(0, 0);
 	
 	int scoreTemp = playerScore;
-	
 	if (scoreTemp < 0) scoreTemp = 0;
+	if (scoreTemp > 999) scoreTemp = 999;
 	
 	for (int i = 2; i >= 0; i--) {
 		int power = pow(10.0, i);
@@ -492,8 +490,8 @@ void gameUpdate() {
 		ST7735_OutChar(charValue + 0x30);
 	}
 	
-	ST7735_SetCursor(13, 0);
-	ST7735_OutChar(playerLives + 0x30);
+	ST7735_SetCursor(15, 0);
+	ST7735_OutChar((playerLives >= 0 ? playerLives : 0) + 0x30);
 	
 }
 

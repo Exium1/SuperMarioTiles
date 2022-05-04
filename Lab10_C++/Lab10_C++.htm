@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Lab10_C++.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Lab10_C++.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed May 04 16:01:03 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed May 04 17:06:00 2022
 <BR><P>
 <H3>Maximum Stack Usage =        240 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1238,7 +1238,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a3]"></a>gameUpdate()</STRONG> (Thumb, 354 bytes, Stack size 48 bytes, main.o(.text))
+<P><STRONG><a name="[a3]"></a>gameUpdate()</STRONG> (Thumb, 382 bytes, Stack size 48 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = gameUpdate() &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetTextColor(unsigned short)
@@ -1253,7 +1253,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
-<P><STRONG><a name="[ad]"></a>gameScreen()</STRONG> (Thumb, 346 bytes, Stack size 56 bytes, main.o(.text))
+<P><STRONG><a name="[ad]"></a>gameScreen()</STRONG> (Thumb, 324 bytes, Stack size 56 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = gameScreen() &rArr; ST7735_DrawString(unsigned short, unsigned short, char*, short) &rArr; ST7735_DrawCharS(short, short, char, short, short, unsigned char) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms(unsigned)
@@ -1288,7 +1288,7 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;difficultySelectScreen()
 </UL>
 
-<P><STRONG><a name="[ba]"></a>difficultySelectScreen()</STRONG> (Thumb, 506 bytes, Stack size 72 bytes, main.o(.text))
+<P><STRONG><a name="[ba]"></a>difficultySelectScreen()</STRONG> (Thumb, 500 bytes, Stack size 72 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = difficultySelectScreen() &rArr; Image::erase(int, int) &rArr; ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SlidePot::PosSect(unsigned char)
@@ -1827,9 +1827,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Full
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_get_globals
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_exceptions_buffer_init
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_get_globals
 </UL>
 
 <P><STRONG><a name="[fd]"></a>__read_errno</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, _rserrno.o(.text), UNUSED)
@@ -1925,8 +1925,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 80 + Unknown Stack Size
 <LI>Call Chain = std::terminate() &rArr; __cxa_get_globals &rArr; __ARM_exceptions_buffer_init &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
-<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abort
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_get_globals
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_get_globals
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abort
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__default_new_handler()
 </UL>
@@ -1967,9 +1967,9 @@ Global Symbols
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGABRT
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to arm_exceptions_c]::__default_terminate_handler()
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_get_globals
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to arm_exceptions_c]::__default_terminate_handler()
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::terminate()
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_get_globals
 </UL>
 
 <P><STRONG><a name="[103]"></a>__rt_SIGRTMEM</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_rtmem_outer.o(.text))
@@ -2069,7 +2069,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__default_signal_display
 </UL>
 
-<P><STRONG><a name="[a4]"></a>Tile::fall()</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, main.o(i._ZN4Tile4fallEv))
+<P><STRONG><a name="[a4]"></a>Tile::fall()</STRONG> (Thumb, 158 bytes, Stack size 24 bytes, main.o(i._ZN4Tile4fallEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Tile::fall() &rArr; Sprite::draw() &rArr; Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect(short, short, short, short, unsigned short)

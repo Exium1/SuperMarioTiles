@@ -3,8 +3,8 @@
 #include "Random.h"
 
 class Tile;
-Tile* targetTile;
 
+extern Tile* targetTile;
 extern int playerScore;
 extern int playerLives;
 extern Image BlockBrick;
@@ -40,7 +40,7 @@ class Tile {
 				ST7735_FillRect(this->sprite->x, 0, this->sprite->image->width, boxTop - (this->fallSpeed), 0x07E0);
 			} else ST7735_FillRect(this->sprite->x, this->sprite->y - this->sprite->image->height, this->sprite->image->width, this->fallSpeed, 0x07E0);
 			
-			if (this->sprite->y >= 128) {
+			if (this->sprite->y >= 128 && (this->sprite->y - this->sprite->image->height) <= 128 && !this->clicked) {
 				targetTile = this;
 				this->target = true;
 			} else this->target = false;
@@ -76,7 +76,6 @@ class Tile {
 			
 			} else {
 			
-				// brick not hit
 				playerScore -= 10;
 				playerLives -= 1;
 			

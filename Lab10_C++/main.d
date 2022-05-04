@@ -33,6 +33,8 @@
 .\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
 .\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_error.h
+.\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\main.o: ../inc/tm4c123gh6pm.h
 .\main.o: PLL.h
 .\main.o: ST7735.h

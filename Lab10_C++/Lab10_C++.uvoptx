@@ -120,7 +120,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>Stepper_OUTPUT_SEL</Key>
-          <Name>1</Name>
+          <Name>0</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -220,7 +220,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDARM</Key>
-          <Name>(1010=75,104,525,661,0)(1007=105,137,292,412,0)(1008=90,121,466,357,0)(1009=120,153,364,701,0)(1012=135,169,610,483,0)(9108=877,79,1052,311,1)(9106=442,375,661,542,0)(9104=252,340,658,621,0)(9107=875,328,1338,609,1)(9109=446,145,869,426,1)(9102=262,332,668,616,0)</Name>
+          <Name>(1010=75,104,525,661,0)(1007=105,137,292,412,0)(1008=90,121,466,357,0)(1009=120,153,364,701,0)(1012=135,169,610,483,0)(9108=878,89,1053,321,1)(9106=442,375,661,542,0)(9104=252,340,658,621,0)(9107=875,328,1338,609,1)(9109=446,145,869,426,1)(9102=262,332,668,616,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -228,24 +228,7 @@
           <Name>-T0</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>451</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\main.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-      </Breakpoint>
+      <Breakpoint/>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -394,7 +377,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>6</FileNumber>
       <FileType>8</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\ST7735.cpp</PathWithFileName>

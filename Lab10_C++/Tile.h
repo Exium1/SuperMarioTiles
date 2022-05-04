@@ -25,10 +25,10 @@ class Tile {
 		
 		void fall() {
 		
-			ST7735_FillRect(this->sprite->x, this->sprite->y - this->sprite->image->height + 1, this->sprite->image->width, 1, 0x07E0);
+			ST7735_FillRect(this->sprite->x, this->sprite->y - this->sprite->image->height, this->sprite->image->width, this->fallSpeed, 0x07E0);
 			
-			this->sprite->y += 50;
-			this->draw();
+			this->sprite->y += this->fallSpeed;
+			this->sprite->draw();
 		
 		}
 		

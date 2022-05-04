@@ -116,7 +116,7 @@ enum Difficulty {
 	HARD
 };
 
-ScreenMode currentScreen = MENU;
+ScreenMode currentScreen = GAME;
 Language language = ENGLISH;
 Difficulty difficulty = EASY;
 
@@ -296,6 +296,8 @@ void difficultySelectScreen() {
 	Image DifficultyHard(92, 44, DifficultyHardSrc);
 	Image ButtonHighlighted(98, 50, ButtonHighlightedSrc);
 	
+	currentBackground = &MarioWorldBackground;
+	
 	MarioWorldBackground.draw(0, 160);
 	DifficultyEasy.draw(18, 51);
 	DifficultyNormal.draw(18, 102);
@@ -372,11 +374,12 @@ void difficultySelectScreen() {
 
 Tile* tiles[10] = {};
 int tilesLength = 0;
+	
+Image BrickBlockMedium(32, 32, BrickBlockMediumSrc);
 
 void gameScreen() {
 	
 	Image EasyLevelBackground(128, 160, EasyLevelBackgroundSrc);
-	Image BrickBlockMedium(32, 32, BrickBlockMediumSrc);
 	
 //	Sprite Block1(0, 160, &BrickBlockMedium);
 //	Sprite Block2(32, 128, &BrickBlockMedium);
@@ -392,18 +395,19 @@ void gameScreen() {
 	
 	EasyLevelBackground.draw(0, 160);
 	
+	currentBackground = &EasyLevelBackground;
+
 	ST7735_FillRect(0, 0, 128, 12, 0x0000);
 	
 	for (int row = 0; row < 5; row++) {
 
 		int col = Random() % 4;
 		
-		Sprite tempBlock(32 * col, 32 * row, &BrickBlockMedium);
-		Tile tempTile(&tempBlock, false, 10, col);
+		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BrickBlockMedium);		
+		tiles[tilesLength] = new Tile(tempBlock, false, 10, col);
 		
-		tempTile.draw();
+		tiles[tilesLength]->draw();
 		
-		tiles[tilesLength] = &tempTile;
 		tilesLength++;
 
 	}
@@ -422,11 +426,7 @@ void gameScreen() {
 		tiles[i]->falling = true;
 	}
 	
-	//Timer0_Init(&gameUpdate, 960000);
-	
-	Delay1ms(500);
-	
-	gameUpdate();
+	Timer0_Init(&gameUpdate, 960000);
 	
 	ongoingGame = true;
 	while(ongoingGame) {};
@@ -440,5 +440,7 @@ void gameUpdate() {
 		if (tiles[i]->falling) tiles[i]->fall();
 		
 	}
+	
+	ST7735_FillRect(0, 0, 128, 12, 0x0000);
 }
 

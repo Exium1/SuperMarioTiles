@@ -962,6 +962,10 @@ void ST7735_FillScreen(uint16_t color) {
 void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color) {
   uint8_t hi = color >> 8, lo = color;
 
+	if(((x + w) < 0) || (y >= 160) || ((x) >= 160) || ((y + h - 1) < 0)){
+    return;                             // image is totally off the screen, do nothing
+	}
+	
   // rudimentary clipping (drawChar w/big text requires this)
   if((x >= _width) || (y >= _height)) return;
   if((x + w - 1) >= _width)  w = _width  - x;

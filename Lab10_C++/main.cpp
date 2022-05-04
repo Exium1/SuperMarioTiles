@@ -51,6 +51,8 @@
 
 #include <stdint.h>
 #include <string>
+#include <stdio.h>
+#include <math.h>
 #include "../inc/tm4c123gh6pm.h"
 #include "PLL.h"
 #include "ST7735.h"
@@ -62,6 +64,8 @@
 #include "Sprite.h"
 #include "TexaS.h"
 #include "Tile.h"
+
+using namespace std;
 
 SlidePot my(1500,0);
 
@@ -96,6 +100,9 @@ void Delay1ms(uint32_t);
 void gameUpdate();
 
 bool ongoingGame = false;
+int playerScore = 0;
+int playerLives = 3;
+int fallTileCount = 0;
 
 enum ScreenMode {
 	MENU,
@@ -187,7 +194,7 @@ void transitionCollapse() {
 
 bool IO_Touch(int buttonIndex, bool wait) {
 	
-	buttonIndex = 0;
+	//buttonIndex = 0;
 
 	if (wait) {
 		
@@ -372,26 +379,17 @@ void difficultySelectScreen() {
 
 }
 
-Tile* tiles[10] = {};
+Tile* tiles[6] = {};
+// Tile* targetTile;
 int tilesLength = 0;
 	
-Image BrickBlockMedium(32, 32, BrickBlockMediumSrc);
+Image BlockBrick(32, 32, BlockBrickSrc);
+Image BlockBlank(32, 32, BlockBlankSrc);
+Image BlockQuestion(32, 32, BlockQuestionSrc);
 
 void gameScreen() {
 	
 	Image EasyLevelBackground(128, 160, EasyLevelBackgroundSrc);
-	
-//	Sprite Block1(0, 160, &BrickBlockMedium);
-//	Sprite Block2(32, 128, &BrickBlockMedium);
-//	Sprite Block3(32, 96, &BrickBlockMedium);
-//	Sprite Block4(64, 64, &BrickBlockMedium);
-//	Sprite Block5(0, 32, &BrickBlockMedium);
-	
-//	Block1.draw();
-//	Block2.draw();
-//	Block3.draw();
-//	Block4.draw();
-//	Block5.draw();
 	
 	EasyLevelBackground.draw(0, 160);
 	
@@ -399,12 +397,12 @@ void gameScreen() {
 
 	ST7735_FillRect(0, 0, 128, 12, 0x0000);
 	
-	for (int row = 0; row < 5; row++) {
+	for (int row = 0; row < 6; row++) {
 
 		int col = Random() % 4;
 		
-		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BrickBlockMedium);		
-		tiles[tilesLength] = new Tile(tempBlock, false, 10, col);
+		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BlockBrick);		
+		tiles[tilesLength] = new Tile(tempBlock, false, 1, col);
 		
 		tiles[tilesLength]->draw();
 		
@@ -430,17 +428,72 @@ void gameScreen() {
 	
 	ongoingGame = true;
 	while(ongoingGame) {};
-	
+			
 }
 
 void gameUpdate() {
+		
+	fallTileCount++;
+	
+	if ((GPIO_PORTE_DATA_R & 0xF) != 0) {
+		
+		int portEVal = GPIO_PORTE_DATA_R & 0xF;
+		int index;
+		
+		if (portEVal == 1) index = 0;
+		else if (portEVal == 2) index = 1;
+		else if (portEVal == 4) index = 2;
+		else if (portEVal == 8) index = 3;
+		
+		if(targetTile->col == index) {
+			// right tile hit
+			
+			targetTile->clicked = true;
+			targetTile->sprite->image = &BlockBlank;
+			
+			playerScore++;
+			
+		} else {
+			
+			// wrong tile hit
+			playerScore -= 5;
+			playerLives -= 1;
+			
+		}
+	}
 
 	for (int i = 0; i < tilesLength; i++) {
-			
-		if (tiles[i]->falling) tiles[i]->fall();
 		
+		Tile* tile = tiles[i];
+		
+		if (tile->falling && ((fallTileCount % 2) == 0)) tile->fall();
+		
+		if (tile->sprite->y - tile->sprite->image->height > 160) {
+			tile->hitBottom();
+		}
 	}
 	
-	ST7735_FillRect(0, 0, 128, 12, 0x0000);
+	ST7735_FillRect(0, 0, 128, 12, 0x0000); // Top bar
+	ST7735_FillRect(0, 128, 128, 3, 0x35DD); // Hit bar
+		
+	ST7735_SetTextColor(0xFFFF);
+	ST7735_SetCursor(0, 0);
+	
+	int scoreTemp = playerScore;
+	
+	if (scoreTemp < 0) scoreTemp = 0;
+	
+	for (int i = 2; i >= 0; i--) {
+		int power = pow(10.0, i);
+		
+		int charValue = scoreTemp / power;
+		scoreTemp = (scoreTemp) % power;
+		
+		ST7735_OutChar(charValue + 0x30);
+	}
+	
+	ST7735_SetCursor(13, 0);
+	ST7735_OutChar(playerLives + 0x30);
+	
 }
 

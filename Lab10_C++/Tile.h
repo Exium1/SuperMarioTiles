@@ -1,5 +1,13 @@
 #include "Sprite.h"
 #include "ST7735.h"
+#include "Random.h"
+
+class Tile;
+Tile* targetTile;
+
+extern int playerScore;
+extern int playerLives;
+extern Image BlockBrick;
 
 class Tile {
 
@@ -9,6 +17,7 @@ class Tile {
 		bool clicked;
 		bool onScreen;
 		bool falling;
+		bool target;
 		int fallSpeed;
 		int col;
 	
@@ -24,8 +33,17 @@ class Tile {
 		}
 		
 		void fall() {
-		
-			ST7735_FillRect(this->sprite->x, this->sprite->y - this->sprite->image->height, this->sprite->image->width, this->fallSpeed, 0x07E0);
+			
+			int boxTop = this->sprite->y - this->sprite->image->height;
+			
+			if (boxTop < 0) {
+				ST7735_FillRect(this->sprite->x, 0, this->sprite->image->width, boxTop - (this->fallSpeed), 0x07E0);
+			} else ST7735_FillRect(this->sprite->x, this->sprite->y - this->sprite->image->height, this->sprite->image->width, this->fallSpeed, 0x07E0);
+			
+			if (this->sprite->y >= 128) {
+				targetTile = this;
+				this->target = true;
+			} else this->target = false;
 			
 			this->sprite->y += this->fallSpeed;
 			this->sprite->draw();
@@ -36,6 +54,36 @@ class Tile {
 		
 			this->sprite->draw();
 		
+		}
+		
+		void reset() {
+			
+			int newCol = Random() % 4;
+		
+			this->sprite->y = 0; // Move back to top
+			this->sprite->x = newCol * 32; // Move into random col
+			this->col = newCol;
+			this->clicked = false;
+			this->sprite->image = &BlockBrick;
+		
+		}
+		
+		void hitBottom() {
+			
+			if(this->clicked == true) {
+			
+				playerScore++;
+			
+			} else {
+			
+				// brick not hit
+				playerScore -= 10;
+				playerLives -= 1;
+			
+			}
+			
+			this->reset();
+			
 		}
 	
 };

@@ -980,8 +980,8 @@ void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
     for(x = 0; x < w; x++) {
 			
 			if (color == 0x07E0) {
-				
-				uint16_t newPixel = backgroundPixel(xInitial + w - x - 1, yInitial + y);
+				 
+				uint16_t newPixel = backgroundPixel(0 - xInitial - x + 1, yInitial + y - 1);
 								
 				writedata((uint8_t)(newPixel >> 8));
 				writedata((uint8_t)(newPixel));

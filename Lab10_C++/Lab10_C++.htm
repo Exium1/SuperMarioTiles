@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Lab10_C++.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Lab10_C++.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu May 05 09:12:51 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu May 05 14:18:29 2022
 <BR><P>
 <H3>Maximum Stack Usage =        264 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1290,7 +1290,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
-<P><STRONG><a name="[b6]"></a>gameScreen()</STRONG> (Thumb, 346 bytes, Stack size 48 bytes, main.o(.text))
+<P><STRONG><a name="[b6]"></a>gameScreen()</STRONG> (Thumb, 358 bytes, Stack size 48 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = gameScreen() &rArr; Sprite::draw() &rArr; Image::draw(int, int) &rArr; ST7735_DrawBitmap(short, short, const unsigned short*, short, short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Random()
@@ -1406,7 +1406,7 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transitionCollapse()
 </UL>
 
-<P><STRONG><a name="[b4]"></a>ST7735_FillRect(short, short, short, short, unsigned short)</STRONG> (Thumb, 244 bytes, Stack size 48 bytes, st7735.o(.text))
+<P><STRONG><a name="[b4]"></a>ST7735_FillRect(short, short, short, short, unsigned short)</STRONG> (Thumb, 246 bytes, Stack size 48 bytes, st7735.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = ST7735_FillRect(short, short, short, short, unsigned short) &rArr; setAddrWindow(unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;backgroundPixel(int, int)
@@ -1443,7 +1443,7 @@ Global Symbols
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;endScreen()
 </UL>
 
-<P><STRONG><a name="[d4]"></a>ST7735_InitB()</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
+<P><STRONG><a name="[d4]"></a>ST7735_InitB()</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, st7735.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit(const unsigned char*)
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen(unsigned short)
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor(unsigned, unsigned)

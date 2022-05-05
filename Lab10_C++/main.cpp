@@ -428,7 +428,7 @@ void difficultySelectScreen() {
 		DifficultyMedium.draw(37, 85);
 
 		RedButton.draw(18, 153);
-		DifficultyHard.draw(30, 137);
+		DifficultyHard.draw(30, 134);
 	
 		while (1) {
 			if (my.PosSect(3) == 0){
@@ -472,7 +472,7 @@ void difficultySelectScreen() {
 			
 			if (my.PosSect(3) == 2){
 				ButtonHighlighted.draw(15, 156);
-				DifficultyHard.draw(30, 137);
+				DifficultyHard.draw(30, 134);
 				
 				while (my.PosSect(3) == 2) {
 					if (IO_Touch(4, false)) {
@@ -486,7 +486,7 @@ void difficultySelectScreen() {
 
 				ButtonHighlighted.erase(15, 156);
 				RedButton.draw(18, 153);
-				DifficultyHard.draw(30, 137);
+				DifficultyHard.draw(30, 134);
 			}
 		}
 	
@@ -542,6 +542,7 @@ void gameScreen() {
 	while(ongoingGame) {};
 		
 	for (int i = 0; i < 6; i++) {
+		delete tiles[i]->sprite;
 		delete tiles[i];
 	}
 		
@@ -640,8 +641,8 @@ void endScreen() {
 
 		if (playerScore < 10) {
 			
-				ST7735_DrawString(5, 9, "Mama mia!", 0xFFFF);
-				ST7735_DrawString(5, 10, "You suck!", 0xFFFF);			
+				ST7735_DrawString(6, 9, "Mama mia!", 0xFFFF);
+				ST7735_DrawString(6, 10, "You suck!", 0xFFFF);			
 			
 		} else if (playerScore < 25) {
 		
@@ -672,7 +673,7 @@ void endScreen() {
 
 		if (playerScore < 10) {
 			
-				ST7735_DrawString(5, 9, "Mama mia!", 0xFFFF);
+				ST7735_DrawString(6, 9, "Mama mia!", 0xFFFF);
 				ST7735_DrawString(5, 10, "Fai schifo!", 0xFFFF);			
 			
 		} else if (playerScore < 25) {
@@ -698,7 +699,7 @@ void endScreen() {
 	
 	}
 	
-	while ((GPIO_PORTE_DATA_R & 0xF) == 0) {}
+	while ((GPIO_PORTE_DATA_R & 0x10) == 0) {}
 		
 	currentScreen = MENU;
 		

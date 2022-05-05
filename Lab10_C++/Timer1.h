@@ -32,6 +32,6 @@
 // Outputs: none
 void Timer1_Init(void(*task)(void), uint32_t period);
 
-void Timer1A_Stop(void);
+void Timer1_Stop(void);
 
 #endif // __TIMER1INTS_H__

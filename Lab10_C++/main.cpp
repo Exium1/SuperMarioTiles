@@ -64,6 +64,7 @@
 #include "Sprite.h"
 #include "TexaS.h"
 #include "Tile.h"
+#include "Timer2.h"
 
 using namespace std;
 
@@ -93,8 +94,10 @@ void languageSelectScreen();
 void difficultySelectScreen();
 void gameScreen();
 void Sound_Init();
+void Sound_Stop(int index);
+void Sound_Stop();
 void Output_Init();
-void Sound_Play(int index);
+void Sound_Play(int index, bool loop);
 void Timer1_Init(void(*task)(void), uint32_t period);
 void Delay1ms(uint32_t);
 void gameUpdate();
@@ -138,9 +141,7 @@ int main(void){
 	Sound_Init();
 	Input_Init();
   EnableInterrupts();
-	
-	//Sound_Play(0);
-	
+		
   while(1){	
 		if (currentScreen == MENU) {
 		
@@ -194,7 +195,7 @@ void transitionCollapse() {
 
 bool IO_Touch(int buttonIndex, bool wait) {
 	
-	//buttonIndex = 0;
+	buttonIndex = 0;
 
 	if (wait) {
 		
@@ -218,16 +219,16 @@ void menuScreen() {
 	
 	Image MainMenuBackground(128, 160, MainMenuBackgroundSrc);
 	Image GoldCoinBig(22, 29, GoldCoinBigSrc);
-	
-	Sprite GoldCoinSprite(53, 100, &GoldCoinBig);
+	Image SuperMarioTiles(120, 26, SuperMarioTilesSrc);
 	
 	currentBackground = &MainMenuBackground;
 	
+	Sprite GoldCoinSprite(53, 100, &GoldCoinBig);
+		
 	MainMenuBackground.draw(0, 160);	
+	SuperMarioTiles.draw(4, 30);
 	GoldCoinSprite.animate(FLOATING);
-	
-	Sound_Play(0);
-	
+		
 	IO_Touch(4, true);
 	
 	Timer0_Stop();
@@ -237,24 +238,29 @@ void menuScreen() {
 }
 
 void languageSelectScreen() {
-
-	Image MarioWorldBackground(128, 160, MarioWorldBackgroundSrc);
-	Image LanguageEnglish(92, 44, LanguageEnglishSrc);
-	Image LanguageItaliano(92, 44, LanguageItalianoSrc);
+	
+	Image MainMenuBackground(128, 160, MainMenuBackgroundSrc);
+	Image LanguageEnglish(54, 7, LanguageEnglishSrc);
+	Image LanguageItaliano(59, 7, LanguageItalianoSrc);
+	Image RedButton(92, 44, RedButtonSrc);
 	Image ButtonHighlighted(98, 50, ButtonHighlightedSrc);
 	
-	MarioWorldBackground.draw(0, 160);
-	LanguageEnglish.draw(18, 68);
-	LanguageItaliano.draw(18, 136);
+	currentBackground = &MainMenuBackground;
 	
-	currentBackground = &MarioWorldBackground;
+	MainMenuBackground.draw(0, 160);
 	
+	RedButton.draw(18, 68);
+	LanguageEnglish.draw(37, 50);
+	
+	RedButton.draw(18, 136);
+	LanguageItaliano.draw(34, 118);
+		
 	bool languageChosen = false;
 
 	while (1) {
 		if (my.PosSect(2) == 0){
 			ButtonHighlighted.draw(15, 71);
-			LanguageEnglish.draw(18, 68);
+			LanguageEnglish.draw(37, 50);
 						
 			while(my.PosSect(2) == 0) {
 				if (IO_Touch(4, false)) {
@@ -267,13 +273,14 @@ void languageSelectScreen() {
 			if (languageChosen) break;
 			
 			ButtonHighlighted.erase(15, 71);
-			LanguageEnglish.draw(18, 68);
+			RedButton.draw(18, 68);
+			LanguageEnglish.draw(37, 50);
 			
 		}
 		
 		if (my.PosSect(2) == 1){
 			ButtonHighlighted.draw(15, 139);
-			LanguageItaliano.draw(18, 136);
+			LanguageItaliano.draw(34, 118);
 						
 			while(my.PosSect(2) == 1) {
 				if (IO_Touch(4, false)) {
@@ -286,7 +293,8 @@ void languageSelectScreen() {
 			if(languageChosen) break;
 		
 			ButtonHighlighted.erase(15, 139);
-			LanguageItaliano.draw(18, 136);
+			RedButton.draw(18, 136);
+			LanguageItaliano.draw(34, 118);
 			
 		}
 	}
@@ -299,101 +307,167 @@ void languageSelectScreen() {
 
 void difficultySelectScreen() {
 
-	Image MarioWorldBackground(128, 160, MarioWorldBackgroundSrc);
+	Image MainMenuBackground(128, 160, MainMenuBackgroundSrc);
 	Image ButtonHighlighted(98, 50, ButtonHighlightedSrc);
+	Image RedButton(92, 44, RedButtonSrc);
 	
-//	Image DifficultyEasy(92, 44, DifficultyEasySrc);
-//	Image DifficultyNormal(92, 44, DifficultyNormalSrc);
-//	Image DifficultyHard(92, 44, DifficultyHardSrc);
+	currentBackground = &MainMenuBackground;
 	
-	Image* DifficultyEasy;
-	Image* DifficultyNormal;
-	Image* DifficultyHard;
-	
-	currentBackground = &MarioWorldBackground;
-	
-	if (language == ENGLISH) {
-	
-		DifficultyEasy = new Image(92, 44, DifficultyEasy_ENSrc);
-		DifficultyNormal = new Image(92, 44, DifficultyNormal_ENSrc);
-		DifficultyHard = new Image(92, 44, DifficultyHard_ENSrc);
-
-	
-	} else if (language == ITALIANO) {
-	
-		DifficultyEasy = new Image(92, 44, DifficultyEasy_ITSrc);
-		DifficultyNormal = new Image(92, 44, DifficultyNormal_ITSrc);
-		DifficultyHard = new Image(92, 44, DifficultyHard_ITSrc);
-	
-	}
-	
-	MarioWorldBackground.draw(0, 160);
-	DifficultyEasy->draw(18, 51);
-	DifficultyNormal->draw(18, 102);
-	DifficultyHard->draw(18, 153);
+	MainMenuBackground.draw(0, 160);
 	
 	bool difficultyChosen = false;
 	
-	while (1) {
-		if (my.PosSect(3) == 0){
-			ButtonHighlighted.draw(15, 54);
-			DifficultyEasy->draw(18, 51);
-			
-			while (my.PosSect(3) == 0) {
-				if (IO_Touch(4, false)) {
-					difficulty = EASY;
-					difficultyChosen = true;
-					break;
-				}
-			}
-			
-			if (difficultyChosen) break;
-			
-			ButtonHighlighted.erase(15, 54);
-			DifficultyEasy->draw(18, 51);
-
-		}
-
-		if (my.PosSect(3) == 1){
-			ButtonHighlighted.draw(15, 105);
-			DifficultyNormal->draw(18, 102);
-			
-			while(my.PosSect(3) == 1) {
-				if (IO_Touch(4, false)) {
-					difficulty = NORMAL;
-					difficultyChosen = true;
-					break;
-				}
-			}
-			
-			if (difficultyChosen) break;
-			
-			ButtonHighlighted.erase(15, 105);
-			DifficultyNormal->draw(18, 102);
-		}
+	if (language == ENGLISH) {
 		
-		if (my.PosSect(3) == 2){
-			ButtonHighlighted.draw(15, 156);
-			DifficultyHard->draw(18, 153);
-			
-			while (my.PosSect(3) == 2) {
-				if (IO_Touch(4, false)) {
-					difficulty = HARD;
-					difficultyChosen = true;
-					break;
+		Image DifficultyEasy = Image(43, 10, DifficultyEasy_ENSrc);
+		Image DifficultyMedium = Image(63, 10, DifficultyMedium_ENSrc);
+		Image DifficultyHard = Image(43, 10, DifficultyHard_ENSrc);
+		
+		RedButton.draw(18, 51);
+		DifficultyEasy.draw(43, 34);
+		
+		RedButton.draw(18, 102);
+		DifficultyMedium.draw(33, 85);
+
+		RedButton.draw(18, 153);
+		DifficultyHard.draw(43, 136);
+		
+		while (1) {
+			if (my.PosSect(3) == 0){
+				ButtonHighlighted.draw(15, 54);
+				DifficultyEasy.draw(43, 34);
+				
+				while (my.PosSect(3) == 0) {
+					if (IO_Touch(4, false)) {
+						difficulty = EASY;
+						difficultyChosen = true;
+						break;
+					}
 				}
+				
+				if (difficultyChosen) break;
+				
+				ButtonHighlighted.erase(15, 54);
+				RedButton.draw(18, 51);
+				DifficultyEasy.draw(43, 34);
+
+			}
+
+			if (my.PosSect(3) == 1){
+				ButtonHighlighted.draw(15, 105);
+				DifficultyMedium.draw(33, 85);
+				
+				while(my.PosSect(3) == 1) {
+					if (IO_Touch(4, false)) {
+						difficulty = NORMAL;
+						difficultyChosen = true;
+						break;
+					}
+				}
+				
+				if (difficultyChosen) break;
+				
+				ButtonHighlighted.erase(15, 105);
+				RedButton.draw(18, 102);
+				DifficultyMedium.draw(33, 85);
 			}
 			
-			if (difficultyChosen) break;
+			if (my.PosSect(3) == 2){
+				ButtonHighlighted.draw(15, 156);
+				DifficultyHard.draw(43, 136);
+				
+				while (my.PosSect(3) == 2) {
+					if (IO_Touch(4, false)) {
+						difficulty = HARD;
+						difficultyChosen = true;
+						break;
+					}
+				}
+				
+				if (difficultyChosen) break;
 
-			ButtonHighlighted.erase(15, 156);
-			DifficultyHard->draw(18, 153);
+				ButtonHighlighted.erase(15, 156);
+				RedButton.draw(18, 153);
+				DifficultyHard.draw(43, 136);
+			}
 		}
-	}
 	
-	delete DifficultyEasy;
-	delete DifficultyNormal;
-	delete DifficultyHard;
+	} else if (language == ITALIANO) {
+		
+		Image DifficultyEasy = Image(57, 9, DifficultyEasy_ITSrc);
+		Image DifficultyMedium = Image(53, 10, DifficultyMedium_ITSrc);
+		Image DifficultyHard = Image(67, 7, DifficultyHard_ITSrc);
+		
+		RedButton.draw(18, 51);
+		DifficultyEasy.draw(35, 33);
+		
+		RedButton.draw(18, 102);
+		DifficultyMedium.draw(37, 85);
+
+		RedButton.draw(18, 153);
+		DifficultyHard.draw(30, 137);
+	
+		while (1) {
+			if (my.PosSect(3) == 0){
+				ButtonHighlighted.draw(15, 54);
+				DifficultyEasy.draw(35, 33);
+				
+				while (my.PosSect(3) == 0) {
+					if (IO_Touch(4, false)) {
+						difficulty = EASY;
+						difficultyChosen = true;
+						break;
+					}
+				}
+				
+				if (difficultyChosen) break;
+				
+				ButtonHighlighted.erase(15, 54);
+				RedButton.draw(18, 51);
+				DifficultyEasy.draw(35, 33);
+
+			}
+
+			if (my.PosSect(3) == 1){
+				ButtonHighlighted.draw(15, 105);
+				DifficultyMedium.draw(37, 85);
+				
+				while(my.PosSect(3) == 1) {
+					if (IO_Touch(4, false)) {
+						difficulty = NORMAL;
+						difficultyChosen = true;
+						break;
+					}
+				}
+				
+				if (difficultyChosen) break;
+				
+				ButtonHighlighted.erase(15, 105);
+				RedButton.draw(18, 102);
+				DifficultyMedium.draw(37, 85);
+			}
+			
+			if (my.PosSect(3) == 2){
+				ButtonHighlighted.draw(15, 156);
+				DifficultyHard.draw(30, 137);
+				
+				while (my.PosSect(3) == 2) {
+					if (IO_Touch(4, false)) {
+						difficulty = HARD;
+						difficultyChosen = true;
+						break;
+					}
+				}
+				
+				if (difficultyChosen) break;
+
+				ButtonHighlighted.erase(15, 156);
+				RedButton.draw(18, 153);
+				DifficultyHard.draw(30, 137);
+			}
+		}
+	
+	}
 	
 	currentScreen = GAME;
 		
@@ -407,13 +481,13 @@ int tilesLength = 0;
 	
 Image BlockBrick(32, 32, BlockBrickSrc);
 Image BlockBlank(32, 32, BlockBlankSrc);
-Image BlockQuestion(32, 32, BlockQuestionSrc);
 
 void gameScreen() {
 	
-	Image EasyLevelBackground(128, 160, EasyLevelBackgroundSrc);
-	EasyLevelBackground.draw(0, 160);	
-	currentBackground = &EasyLevelBackground;
+	Image MainMenuBackground(128, 160, MainMenuBackgroundSrc);
+	MainMenuBackground.draw(0, 160);
+	
+	currentBackground = &MainMenuBackground;
 	
 	playerLives = 3;
 	playerScore = 0;
@@ -442,10 +516,12 @@ void gameScreen() {
 	
 	ST7735_FillRect(0, 0, 128, 12, 0x0000); // Top bar
 	ST7735_FillRect(0, 128, 128, 3, 0x35DD); // Hit bar
+			
+	Sound_Play(0, true);
 	
 	while ((GPIO_PORTE_DATA_R & 0xF) == 0) {}
 		
-	Timer0_Init(&gameUpdate, 960000);
+	Timer0_Init((&gameUpdate), 960000);
 	
 	ongoingGame = true;
 	while(ongoingGame) {};
@@ -512,6 +588,7 @@ void gameUpdate() {
 	
 		ongoingGame = false;
 		Timer0_Stop();
+		Sound_Stop(0);
 		
 		return;
 	}

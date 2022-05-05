@@ -50,3 +50,4 @@
 .\main.o: Sprite.h
 .\main.o: Images.h
 .\main.o: Random.h
+.\main.o: Timer2.h

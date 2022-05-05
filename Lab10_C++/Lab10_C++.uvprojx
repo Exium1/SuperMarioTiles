@@ -458,6 +458,11 @@
               <FileType>8</FileType>
               <FilePath>.\Images.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Timer2.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Timer2.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

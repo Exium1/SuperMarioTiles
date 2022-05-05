@@ -28,6 +28,8 @@
 void (*PeriodicTask1)(void);   // user function
 extern "C" void TIMER1A_Handler(void);
 
+bool stopped = false;
+
 // ***************** TIMER1_Init ****************
 // Activate TIMER1 interrupts to run user task periodically
 // Inputs:  task is a pointer to a user function
@@ -43,18 +45,21 @@ void Timer1_Init(void(*task)(void), uint32_t period){
   TIMER1_TAPR_R = 0;            // 5) bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
   TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
-  NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF00FF)|0x00008000; // 8) priority 4
+  NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF1FFF)|0x00000000; // 8) priority 4
 // interrupts enabled in the main program after all devices initialized
 // vector number 37, interrupt number 21
   NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
   TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
+	stopped = true;
 }
 extern "C" void TIMER1A_Handler(void);
 void TIMER1A_Handler(void){
+	if (stopped == false) return;
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
   (*PeriodicTask1)();                // execute user task
 }
 
-void Timer1A_Stop() {
+void Timer1_Stop() {
 	TIMER1_CTL_R = 0x00000000;
+	stopped = true;
 }

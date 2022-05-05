@@ -14,6 +14,7 @@
 
 class Sound;
 Sound* soundToPlay;
+extern bool stopped;
 
 void playSample();
 
@@ -24,6 +25,7 @@ class Sound {
 		const unsigned char* wave;
 		uint32_t length;
 		uint32_t index;
+		bool loop;
 		
 		Sound(const unsigned char* wave, uint32_t length) {
 		
@@ -32,14 +34,12 @@ class Sound {
 			this->index = 0;
 		}
 		
-		Sound(void) {}
-		
 		void play() {
 			
 			soundToPlay = this;
 
 			Timer1_Init(&(playSample), BusClock/SampleFreq);
-			
+						
 		}
 		
 		void play(int seek) {
@@ -50,6 +50,15 @@ class Sound {
 			Timer1_Init(&(playSample), BusClock/SampleFreq);
 			
 		}
+		
+		void stop() {
+			
+			Timer1_Stop();
+			
+			this->index = 0;
+			this->loop = false;
+		
+		}
 	
 };
 
@@ -59,14 +68,15 @@ void playSample() {
 	
 	if (soundToPlay->index > soundToPlay->length) {
 	
-		Timer1A_Stop();
+		if (!soundToPlay->loop) soundToPlay->stop();
+		
 		soundToPlay->index = 0;
 	
 	}
 }
 
 Sound soundList[1] = {
-	Sound(TitleTheme_Intro, TitleTheme_IntroLength)
+	Sound(TitleTheme_Speed, TitleTheme_SpeedLength)
 };
 	
 void Sound_Init(void){
@@ -74,8 +84,21 @@ void Sound_Init(void){
 	DAC_Init();
 };
 
-void Sound_Play(int index){
+void Sound_Play(int index, bool loop){
 // write this
-	soundList[index].play();
+	soundList[index].loop = loop;
+	soundList[index].play(0);
 	
 };
+
+void Sound_Stop(int index) {
+	
+	soundList[index].stop();
+
+}
+
+void Sound_Stop() {
+
+	Timer1_Stop();
+
+}

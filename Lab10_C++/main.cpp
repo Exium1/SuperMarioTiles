@@ -641,7 +641,7 @@ void endScreen() {
 		if (playerScore < 10) {
 			
 				ST7735_DrawString(5, 9, "Mama mia!", 0xFFFF);
-				ST7735_DrawString(5, 9, "You suck!", 0xFFFF);			
+				ST7735_DrawString(5, 10, "You suck!", 0xFFFF);			
 			
 		} else if (playerScore < 25) {
 		
@@ -673,7 +673,7 @@ void endScreen() {
 		if (playerScore < 10) {
 			
 				ST7735_DrawString(5, 9, "Mama mia!", 0xFFFF);
-				ST7735_DrawString(5, 9, "Fai schifo!", 0xFFFF);			
+				ST7735_DrawString(5, 10, "Fai schifo!", 0xFFFF);			
 			
 		} else if (playerScore < 25) {
 		

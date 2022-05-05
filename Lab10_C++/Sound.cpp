@@ -75,8 +75,9 @@ void playSample() {
 	}
 }
 
-Sound soundList[1] = {
-	Sound(TitleTheme_Speed, TitleTheme_SpeedLength)
+Sound soundList[2] = {
+	Sound(TitleTheme_Speed, TitleTheme_SpeedLength),
+	Sound(Coin, CoinLength)
 };
 	
 void Sound_Init(void){

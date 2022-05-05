@@ -93,6 +93,7 @@ void menuScreen();
 void languageSelectScreen();
 void difficultySelectScreen();
 void gameScreen();
+void endScreen();
 void Sound_Init();
 void Sound_Stop(int index);
 void Sound_Stop();
@@ -112,7 +113,7 @@ enum ScreenMode {
 	LANG_SELECT,
 	DIFF_SELECT,
 	GAME,
-	PAUSE
+	END
 };
 
 enum Language {
@@ -132,6 +133,13 @@ Difficulty difficulty = EASY;
 
 extern Image* currentBackground;
 extern Sprite* spriteToAnimate;
+
+Tile* tiles[6] = {};
+Tile* targetTile;
+int tilesLength = 0;
+	
+Image BlockBrick(32, 32, BlockBrickSrc);
+Image BlockBlank(32, 32, BlockBlankSrc);
 
 int main(void){
   PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
@@ -166,9 +174,9 @@ int main(void){
 			
 		}
 		
-		if (currentScreen == PAUSE) {
+		if (currentScreen == END) {
 		
-			
+			endScreen();
 		
 		}
 		
@@ -195,7 +203,7 @@ void transitionCollapse() {
 
 bool IO_Touch(int buttonIndex, bool wait) {
 	
-	buttonIndex = 0;
+	// buttonIndex = 0;
 
 	if (wait) {
 		
@@ -215,6 +223,19 @@ bool IO_Touch(int buttonIndex, bool wait) {
 	}
 }
 
+void printScore(int score) {
+
+	for (int i = 2; i >= 0; i--) {
+		int power = pow(10.0, i);
+		
+		int charValue = score / power;
+		score = (score) % power;
+		
+		ST7735_OutChar(charValue + 0x30);
+	}
+
+}
+
 void menuScreen() {
 	
 	Image MainMenuBackground(128, 160, MainMenuBackgroundSrc);
@@ -228,6 +249,8 @@ void menuScreen() {
 	MainMenuBackground.draw(0, 160);	
 	SuperMarioTiles.draw(4, 30);
 	GoldCoinSprite.animate(FLOATING);
+	
+	Sound_Play(1, false);
 		
 	IO_Touch(4, true);
 	
@@ -474,14 +497,6 @@ void difficultySelectScreen() {
 	transitionCollapse();
 
 }
-
-Tile* tiles[6] = {};
-Tile* targetTile;
-int tilesLength = 0;
-	
-Image BlockBrick(32, 32, BlockBrickSrc);
-Image BlockBlank(32, 32, BlockBlankSrc);
-
 void gameScreen() {
 	
 	Image MainMenuBackground(128, 160, MainMenuBackgroundSrc);
@@ -530,7 +545,7 @@ void gameScreen() {
 		delete tiles[i];
 	}
 		
-	currentScreen = MENU;
+	currentScreen = END;
 		
 	transitionCollapse();
 			
@@ -572,6 +587,15 @@ void gameUpdate() {
 			
 		}
 	}
+	
+	if (playerLives <= 0) {
+	
+		ongoingGame = false;
+		Timer0_Stop();
+		Sound_Stop(0);
+		
+		return;
+	}
 
 	for (int i = 0; i < 6; i++) {
 		
@@ -582,15 +606,6 @@ void gameUpdate() {
 		if (tile->sprite->y - tile->sprite->image->height > 160) {
 			tile->offScreen();
 		}
-	}
-	
-	if (playerLives <= 0) {
-	
-		ongoingGame = false;
-		Timer0_Stop();
-		Sound_Stop(0);
-		
-		return;
 	}
 	
 	ST7735_FillRect(0, 0, 128, 12, 0x0000); // Top bar
@@ -604,17 +619,89 @@ void gameUpdate() {
 	if (scoreTemp < 0) scoreTemp = 0;
 	if (scoreTemp > 999) scoreTemp = 999;
 	
-	for (int i = 2; i >= 0; i--) {
-		int power = pow(10.0, i);
-		
-		int charValue = scoreTemp / power;
-		scoreTemp = (scoreTemp) % power;
-		
-		ST7735_OutChar(charValue + 0x30);
-	}
+	printScore(scoreTemp);
 	
 	ST7735_SetCursor(17, 0);
 	ST7735_OutChar((playerLives >= 0 ? playerLives : 0) + 0x30);
 	
+}
+
+void endScreen() {
+
+	ST7735_FillScreen(0x0000);
+	
+	if (language == ENGLISH) {
+	
+		ST7735_DrawString(6, 2, "Game Over!", 0xFFFF);
+		ST7735_DrawString(6, 6, "Score: ", 0xFFFF);
+					
+		ST7735_SetCursor(13, 6);
+		printScore(playerScore);
+
+		if (playerScore < 10) {
+			
+				ST7735_DrawString(5, 9, "Mama mia!", 0xFFFF);
+				ST7735_DrawString(5, 9, "You suck!", 0xFFFF);			
+			
+		} else if (playerScore < 25) {
+		
+				ST7735_DrawString(4, 9, "You do better", 0xFFFF);		
+				ST7735_DrawString(5, 10, "watching...", 0xFFFF);						
+			
+		} else if (playerScore < 50) {
+		
+				ST7735_DrawString(5, 9, "Not bad kid.", 0xFFFF);			
+			
+		} else if (playerScore < 100) {
+		
+				ST7735_DrawString(4, 9, "Almost there.", 0xFFFF);			
+			
+		} else {
+			
+				ST7735_DrawString(6, 9, "You saved", 0xFFFF);			
+				ST7735_DrawString(3, 10, "Princess Melody!", 0xFFFF);			
+			
+		}
+	} else if (language == ITALIANO) {
+	
+		ST7735_DrawString(3, 2, "Fine dei Giochi!", 0xFFFF);
+		ST7735_DrawString(6, 6, "Punto: ", 0xFFFF);
+					
+		ST7735_SetCursor(13, 6);
+		printScore(playerScore);
+
+		if (playerScore < 10) {
+			
+				ST7735_DrawString(5, 9, "Mama mia!", 0xFFFF);
+				ST7735_DrawString(5, 9, "Fai schifo!", 0xFFFF);			
+			
+		} else if (playerScore < 25) {
+		
+				ST7735_DrawString(4, 9, "Fai meglio a", 0xFFFF);		
+				ST7735_DrawString(5, 10, "guardare...", 0xFFFF);						
+			
+		} else if (playerScore < 50) {
+		
+				ST7735_DrawString(5, 9, "Non cattivo", 0xFFFF);			
+				ST7735_DrawString(6, 10, "ragazzo.", 0xFFFF);			
+			
+		} else if (playerScore < 100) {
+		
+				ST7735_DrawString(6, 9, "Quasi li.", 0xFFFF);			
+			
+		} else {
+			
+				ST7735_DrawString(4, 9, "Hai salvato la", 0xFFFF);			
+				ST7735_DrawString(2, 10, "principessa Melody!", 0xFFFF);			
+			
+		}
+	
+	}
+	
+	while ((GPIO_PORTE_DATA_R & 0xF) == 0) {}
+		
+	currentScreen = MENU;
+		
+	transitionCollapse();
 }
 

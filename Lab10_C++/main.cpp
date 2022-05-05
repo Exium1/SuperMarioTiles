@@ -123,7 +123,7 @@ enum Difficulty {
 	HARD
 };
 
-ScreenMode currentScreen = GAME;
+ScreenMode currentScreen = MENU;
 Language language = ENGLISH;
 Difficulty difficulty = EASY;
 
@@ -139,7 +139,7 @@ int main(void){
 	Input_Init();
   EnableInterrupts();
 	
-	Sound_Play(0);
+	//Sound_Play(0);
 	
   while(1){	
 		if (currentScreen == MENU) {
@@ -167,7 +167,7 @@ int main(void){
 		
 		if (currentScreen == PAUSE) {
 		
-		
+			
 		
 		}
 		
@@ -225,6 +225,8 @@ void menuScreen() {
 	
 	MainMenuBackground.draw(0, 160);	
 	GoldCoinSprite.animate(FLOATING);
+	
+	Sound_Play(0);
 	
 	IO_Touch(4, true);
 	
@@ -298,81 +300,101 @@ void languageSelectScreen() {
 void difficultySelectScreen() {
 
 	Image MarioWorldBackground(128, 160, MarioWorldBackgroundSrc);
-	Image DifficultyEasy(92, 44, DifficultyEasySrc);
-	Image DifficultyNormal(92, 44, DifficultyNormalSrc);
-	Image DifficultyHard(92, 44, DifficultyHardSrc);
 	Image ButtonHighlighted(98, 50, ButtonHighlightedSrc);
+	
+//	Image DifficultyEasy(92, 44, DifficultyEasySrc);
+//	Image DifficultyNormal(92, 44, DifficultyNormalSrc);
+//	Image DifficultyHard(92, 44, DifficultyHardSrc);
+	
+	Image* DifficultyEasy;
+	Image* DifficultyNormal;
+	Image* DifficultyHard;
 	
 	currentBackground = &MarioWorldBackground;
 	
+	if (language == ENGLISH) {
+	
+		DifficultyEasy = new Image(92, 44, DifficultyEasy_ENSrc);
+		DifficultyNormal = new Image(92, 44, DifficultyNormal_ENSrc);
+		DifficultyHard = new Image(92, 44, DifficultyHard_ENSrc);
+
+	
+	} else if (language == ITALIANO) {
+	
+		DifficultyEasy = new Image(92, 44, DifficultyEasy_ITSrc);
+		DifficultyNormal = new Image(92, 44, DifficultyNormal_ITSrc);
+		DifficultyHard = new Image(92, 44, DifficultyHard_ITSrc);
+	
+	}
+	
 	MarioWorldBackground.draw(0, 160);
-	DifficultyEasy.draw(18, 51);
-	DifficultyNormal.draw(18, 102);
-	DifficultyHard.draw(18, 153);
+	DifficultyEasy->draw(18, 51);
+	DifficultyNormal->draw(18, 102);
+	DifficultyHard->draw(18, 153);
 	
 	bool difficultyChosen = false;
 	
-	if (language == ENGLISH){
-		while (1) {
-			if (my.PosSect(3) == 0){
-				ButtonHighlighted.draw(15, 54);
-				DifficultyEasy.draw(18, 51);
-				
-				while (my.PosSect(3) == 0) {
-					if (IO_Touch(4, false)) {
-						difficulty = EASY;
-						difficultyChosen = true;
-						break;
-					}
+	while (1) {
+		if (my.PosSect(3) == 0){
+			ButtonHighlighted.draw(15, 54);
+			DifficultyEasy->draw(18, 51);
+			
+			while (my.PosSect(3) == 0) {
+				if (IO_Touch(4, false)) {
+					difficulty = EASY;
+					difficultyChosen = true;
+					break;
 				}
-				
-				if (difficultyChosen) break;
-				
-				ButtonHighlighted.erase(15, 54);
-				DifficultyEasy.draw(18, 51);
-
-			}
-
-			if (my.PosSect(3) == 1){
-				ButtonHighlighted.draw(15, 105);
-				DifficultyNormal.draw(18, 102);
-				
-				while(my.PosSect(3) == 1) {
-					if (IO_Touch(4, false)) {
-						difficulty = NORMAL;
-						difficultyChosen = true;
-						break;
-					}
-				}
-				
-				if (difficultyChosen) break;
-				
-				ButtonHighlighted.erase(15, 105);
-				DifficultyNormal.draw(18, 102);
 			}
 			
-			if (my.PosSect(3) == 2){
-				ButtonHighlighted.draw(15, 156);
-				DifficultyHard.draw(18, 153);
-				
-				while (my.PosSect(3) == 2) {
-					if (IO_Touch(4, false)) {
-						difficulty = HARD;
-						difficultyChosen = true;
-						break;
-					}
-				}
-				
-				if (difficultyChosen) break;
+			if (difficultyChosen) break;
+			
+			ButtonHighlighted.erase(15, 54);
+			DifficultyEasy->draw(18, 51);
 
-				ButtonHighlighted.erase(15, 156);
-				DifficultyHard.draw(18, 153);
+		}
+
+		if (my.PosSect(3) == 1){
+			ButtonHighlighted.draw(15, 105);
+			DifficultyNormal->draw(18, 102);
+			
+			while(my.PosSect(3) == 1) {
+				if (IO_Touch(4, false)) {
+					difficulty = NORMAL;
+					difficultyChosen = true;
+					break;
+				}
 			}
+			
+			if (difficultyChosen) break;
+			
+			ButtonHighlighted.erase(15, 105);
+			DifficultyNormal->draw(18, 102);
+		}
+		
+		if (my.PosSect(3) == 2){
+			ButtonHighlighted.draw(15, 156);
+			DifficultyHard->draw(18, 153);
+			
+			while (my.PosSect(3) == 2) {
+				if (IO_Touch(4, false)) {
+					difficulty = HARD;
+					difficultyChosen = true;
+					break;
+				}
+			}
+			
+			if (difficultyChosen) break;
+
+			ButtonHighlighted.erase(15, 156);
+			DifficultyHard->draw(18, 153);
 		}
 	}
 	
-	if (language == ITALIANO){}//todo 
-		
+	delete DifficultyEasy;
+	delete DifficultyNormal;
+	delete DifficultyHard;
+	
 	currentScreen = GAME;
 		
 	transitionCollapse();
@@ -390,12 +412,17 @@ Image BlockQuestion(32, 32, BlockQuestionSrc);
 void gameScreen() {
 	
 	Image EasyLevelBackground(128, 160, EasyLevelBackgroundSrc);
-	
-	EasyLevelBackground.draw(0, 160);
-	
+	EasyLevelBackground.draw(0, 160);	
 	currentBackground = &EasyLevelBackground;
-
-	ST7735_FillRect(0, 0, 128, 12, 0x0000);
+	
+	playerLives = 3;
+	playerScore = 0;
+	
+	int fallSpeed;
+	
+	if (difficulty == EASY) fallSpeed = 1;
+	else if (difficulty == NORMAL) fallSpeed = 2;
+	else if (difficulty == HARD) fallSpeed = 4;
 	
 	for (int row = 0; row < 6; row++) {
 
@@ -403,29 +430,33 @@ void gameScreen() {
 		
 		Sprite* tempBlock = new Sprite(32 * col, 160 - (32 * row), &BlockBrick);
 		
-		tiles[row] = new Tile(tempBlock, false, 4, col);
-		tiles[row]->draw();
+		tiles[row] = new Tile(tempBlock, false, fallSpeed, col);
+		if (row != 0) tiles[row]->draw();
+		else tiles[row]->visible = false;
+		
+		tiles[row]->falling = true;
 		
 	}
-
-	// Countdown
-	ST7735_DrawChar(61, 2, '3', 0xFFFF, 0x0000, 1);
-	Delay1ms(1000);
-	ST7735_DrawChar(61, 2, '2', 0xFFFF, 0x0000, 1);
-	Delay1ms(1000);
-	ST7735_DrawChar(61, 2, '1', 0xFFFF, 0x0000, 1);
-	Delay1ms(1000);
-	char* goString = "Go!";
-	ST7735_DrawString(61, 8, goString, 0xFFFF);
 	
-	for (int i = 0; i < 6; i++) {
-		tiles[i]->falling = true;
-	}
+	targetTile = tiles[1];
 	
+	ST7735_FillRect(0, 0, 128, 12, 0x0000); // Top bar
+	ST7735_FillRect(0, 128, 128, 3, 0x35DD); // Hit bar
+	
+	while ((GPIO_PORTE_DATA_R & 0xF) == 0) {}
+		
 	Timer0_Init(&gameUpdate, 960000);
 	
 	ongoingGame = true;
 	while(ongoingGame) {};
+		
+	for (int i = 0; i < 6; i++) {
+		delete tiles[i];
+	}
+		
+	currentScreen = MENU;
+		
+	transitionCollapse();
 			
 }
 
@@ -443,19 +474,25 @@ void gameUpdate() {
 		else if (portEVal == 4) index = 2;
 		else if (portEVal == 8) index = 3;
 		
-		if (targetTile->col == index && !targetTile->clicked) {
+		if (targetTile->col == index) {
 			// right tile hit
 			
-			targetTile->clicked = true;
-			targetTile->sprite->image = &BlockBlank;
+			if (!targetTile->clicked) {
+				
+				targetTile->clicked = true;
+				targetTile->sprite->image = &BlockBlank;
+				
+				playerScore += 1;
+				
+			}
 			
-			playerScore += 1;
-			
-		} else {
-			
+		} else if (!targetTile->missed) {
+						
 			// wrong tile hit
-			playerScore -= 5;
+			playerScore -= 1;
 			playerLives -= 1;
+			
+			targetTile->missed = true;
 			
 		}
 	}
@@ -467,8 +504,16 @@ void gameUpdate() {
 		if (tile->falling && ((fallTileCount % 2) == 0)) tile->fall();
 		
 		if (tile->sprite->y - tile->sprite->image->height > 160) {
-			tile->hitBottom();
+			tile->offScreen();
 		}
+	}
+	
+	if (playerLives <= 0) {
+	
+		ongoingGame = false;
+		Timer0_Stop();
+		
+		return;
 	}
 	
 	ST7735_FillRect(0, 0, 128, 12, 0x0000); // Top bar
@@ -478,6 +523,7 @@ void gameUpdate() {
 	ST7735_SetCursor(0, 0);
 	
 	int scoreTemp = playerScore;
+	
 	if (scoreTemp < 0) scoreTemp = 0;
 	if (scoreTemp > 999) scoreTemp = 999;
 	
@@ -490,7 +536,7 @@ void gameUpdate() {
 		ST7735_OutChar(charValue + 0x30);
 	}
 	
-	ST7735_SetCursor(15, 0);
+	ST7735_SetCursor(17, 0);
 	ST7735_OutChar((playerLives >= 0 ? playerLives : 0) + 0x30);
 	
 }

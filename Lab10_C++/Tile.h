@@ -15,9 +15,10 @@ class Tile {
 		
 		Sprite* sprite;
 		bool clicked;
-		bool onScreen;
+		bool visible;
 		bool falling;
 		bool target;
+		bool  missed;
 		int fallSpeed;
 		int col;
 	
@@ -25,7 +26,7 @@ class Tile {
 		
 			this->sprite = sprite;
 			this->clicked = false;
-			this->onScreen = false;
+			this->visible = true;
 			this->falling = falling;
 			this->fallSpeed = fallSpeed;
 			this->col = col;
@@ -40,13 +41,13 @@ class Tile {
 				ST7735_FillRect(this->sprite->x, 0, this->sprite->image->width, boxTop - (this->fallSpeed), 0x07E0);
 			} else ST7735_FillRect(this->sprite->x, this->sprite->y - this->sprite->image->height, this->sprite->image->width, this->fallSpeed, 0x07E0);
 			
-			if (this->sprite->y >= 128 && (this->sprite->y - this->sprite->image->height) <= 128 && !this->clicked) {
+			if (this->visible && this->sprite->y >= 128 && (this->sprite->y - this->sprite->image->height) <= 128 && !this->clicked) {
 				targetTile = this;
 				this->target = true;
 			} else this->target = false;
 			
 			this->sprite->y += this->fallSpeed;
-			this->sprite->draw();
+			if (this->visible) this->sprite->draw();
 		
 		}
 		
@@ -68,20 +69,18 @@ class Tile {
 		
 		}
 		
-		void hitBottom() {
+		void offScreen() {
 			
-			if(this->clicked == true) {
+			if (this->visible && this->clicked == false) {
 			
-				playerScore++;
-			
-			} else {
-			
-				playerScore -= 10;
+				playerScore -= 2;
 				playerLives -= 1;
 			
 			}
-			
+						
 			this->reset();
+			this->visible = true;
+			this->missed = false;
 			
 		}
 	

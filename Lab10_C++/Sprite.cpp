@@ -10,13 +10,15 @@ void floatAnimation() {
 	if (floatOffset > 8) floatDirection = 0;
 	else if (floatOffset < 0) floatDirection = 1;
 	
-	spriteToAnimate->draw();
-	
 	if (floatDirection == 0) {
+		ST7735_FillRect(spriteToAnimate->x, spriteToAnimate->y, spriteToAnimate->image->width, 1, 0x07E0);
 		spriteToAnimate->y--;
 		floatOffset--;
 	} else { 
+		ST7735_FillRect(spriteToAnimate->x, spriteToAnimate->y - spriteToAnimate->image->height + 1, spriteToAnimate->image->width, 1, 0x07E0);
 		floatOffset++;
 		spriteToAnimate->y++;
 	}
+	
+	spriteToAnimate->draw();
 }

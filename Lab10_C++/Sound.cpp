@@ -65,9 +65,8 @@ void playSample() {
 	}
 }
 
-Sound soundList[2] = {
-	Sound(shoot, shootLength),
-	Sound(invaderKilled, invaderKilledLength)
+Sound soundList[1] = {
+	Sound(TitleTheme_Intro, TitleTheme_IntroLength)
 };
 	
 void Sound_Init(void){
